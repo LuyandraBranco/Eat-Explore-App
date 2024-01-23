@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu } from "../../components/Menu";
 import { StatusBar } from "expo-status-bar";
 import { CarouselItem } from "../../components/Carousel";
+import { Category } from "../../components/Category";
 
 export function Home({ navigation }: any) {
   return (
@@ -27,6 +28,7 @@ export function Home({ navigation }: any) {
         </View>
       </View>
       <CarouselItem />
+      <Category/>
       <Menu />
     </View>
   );
