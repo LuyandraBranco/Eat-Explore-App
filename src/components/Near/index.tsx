@@ -25,7 +25,7 @@ export function Near({ navigation }: any) {
     </TouchableOpacity>
   );
   return (
-    <View style={styles. containerNear}>
+    <View style={styles.containerNear}>
       <Text style={styles.title}>Próximos de você</Text>
       <View style={styles.containerItems}>
         <FlatList

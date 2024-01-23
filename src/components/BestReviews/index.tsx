@@ -8,7 +8,7 @@ import {
   MagnifyingGlass,
   ShoppingCartSimple,
 } from "phosphor-react-native";
-import nearItems from "../../data/nearData";
+import bestReviewsItems from "../../data/bestReviewsData";
 
 export function BestReviews({ navigation }: any) {
 
@@ -25,11 +25,11 @@ export function BestReviews({ navigation }: any) {
     </TouchableOpacity>
   );
   return (
-    <View style={styles. containerNear}>
-      <Text style={styles.title}>Próximos de você</Text>
+    <View style={styles.containerBest}>
+      <Text style={styles.title}>Melhores Avaliações</Text>
       <View style={styles.containerItems}>
         <FlatList
-          data={nearItems}
+          data={bestReviewsItems}
           renderItem={renderItem}
           keyExtractor={(item) => item.title}
           horizontal

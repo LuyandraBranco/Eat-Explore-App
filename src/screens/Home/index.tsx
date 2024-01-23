@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { CarouselItem } from "../../components/Carousel";
 import { Category } from "../../components/Category";
 import { Near } from "../../components/Near";
+import { BestReviews } from "../../components/BestReviews";
 
 export function Home({ navigation }: any) {
   return (
@@ -30,6 +31,7 @@ export function Home({ navigation }: any) {
       </View>
       <CarouselItem />
       <Category />
+      <BestReviews/>
       <Near />
       <Menu />
     </View>

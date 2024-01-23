@@ -26,7 +26,7 @@ export default StyleSheet.create({
   image: {
     width: 118,
     height: 80,
-    borderRadius: 15,
+    borderRadius: 6,
     marginBottom: 2
   },
 });
