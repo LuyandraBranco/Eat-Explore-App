@@ -16,7 +16,7 @@ export default StyleSheet.create({
     backgroundColor: '#D9D9D9',
     borderRadius: 5,
     paddingVertical: 8,
-    paddingHorizontal: 40, // Aumentei o espaço para acomodar o ícone de lupa
+    paddingHorizontal: 40,
   },
   cancelButton: {
     position: "absolute",
