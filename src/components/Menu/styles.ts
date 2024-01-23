@@ -10,6 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     elevation: 10,
+    // borderTopWidth: 1, borderTopColor: '#E5383B'
   },
   itemMenu:{
     flexDirection: 'column',

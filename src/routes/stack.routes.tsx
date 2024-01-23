@@ -7,6 +7,7 @@ import { AuthScreen } from "../screens/AuthScreen";
 import { SignIn } from "../screens/SignIn";
 import { SignUp } from "../screens/SignUp";
 import { Home } from "../screens/Home";
+import { Search } from "../screens/Search";
 
 const { Screen, Navigator } = createStackNavigator();
 
@@ -38,9 +39,10 @@ export function StackRouter() {
         component={SignUp}
         options={{ headerShown: false }}
       />
-       <Screen
-        name="Home"
-        component={Home}
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen
+        name="Search"
+        component={Search}
         options={{ headerShown: false }}
       />
     </Navigator>

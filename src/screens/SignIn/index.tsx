@@ -66,7 +66,7 @@ export function SignIn({ navigation }: any) {
           <View style={styles.containerButton}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("Search")}
             >
               <Text style={styles.txtButton}>Entrar</Text>
             </TouchableOpacity>

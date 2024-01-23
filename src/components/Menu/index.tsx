@@ -8,23 +8,29 @@ import {
   MagnifyingGlass,
   ShoppingCartSimple,
 } from "phosphor-react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function Menu({ navigation }: any) {
   const [currentPage, setCurrentPage] = useState("Home");
 
   return (
     <View style={styles.containerMenu}>
-      <View style={styles.itemMenu}>
-        <House size={24} color={currentPage === "Home" ? "#E5383B" : "#000"} />
-        <Text
-          style={[
-            styles.txt,
-            { color: currentPage === "Home" ? "#E5383B" : "#000" },
-          ]}
-        >
-          Home
-        </Text>
-      </View>
+      <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+        <View style={styles.itemMenu}>
+          <House
+            size={24}
+            color={currentPage === "Home" ? "#E5383B" : "#000"}
+          />
+          <Text
+            style={[
+              styles.txt,
+              { color: currentPage === "Home" ? "#E5383B" : "#000" },
+            ]}
+          >
+            Home
+          </Text>
+        </View>
+      </TouchableOpacity>
       <View style={styles.itemMenu}>
         <ShoppingCartSimple
           size={24}
@@ -39,6 +45,7 @@ export function Menu({ navigation }: any) {
           Carrinho
         </Text>
       </View>
+      <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
       <View style={styles.itemMenu}>
         <MagnifyingGlass
           size={24}
@@ -53,6 +60,7 @@ export function Menu({ navigation }: any) {
           Pesquisar
         </Text>
       </View>
+      </TouchableOpacity>
       <View style={styles.itemMenu}>
         <Bookmarks
           size={24}
