@@ -1,4 +1,3 @@
-// onboardingData.js
 const onboardingData = [
     {
       title: "Descubra o melhor da culinária local",

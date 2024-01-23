@@ -4,11 +4,11 @@ export default StyleSheet.create({
   containerHome: {
     flex: 1,
     alignItems: "center",
+    flexDirection: 'column'
   },
   header: {
     width: "100%",
     height: "10%",
-    backgroundColor: "grey",
     marginTop: 45,
     flexDirection: "row",
     justifyContent: 'space-between',
@@ -24,6 +24,7 @@ export default StyleSheet.create({
   txt: {
     color: "#F55F5F",
     fontSize: 18,
+    fontWeight: "600"
   },
   headerDescription: {
     color: "#000",
@@ -39,29 +40,9 @@ export default StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  carouselItem: {
-    width: 340,
-    height: 143,
-    alignItems: "center",
-    justifyContent: "center",
+  containerCarousel: {
+    width: 378,
+    height: 160,
+    marginTop: 5,
   },
-  carouselImage: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 8,
-  },
-  carouselDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginHorizontal: 8,
-    backgroundColor: "#F55F5F", // Cor das bolinhas ativas
-  },
-  carouselInactiveDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginHorizontal: 8,
-    backgroundColor: "#C1C1C1", // Cor das bolinhas inativas
-  },  
 });

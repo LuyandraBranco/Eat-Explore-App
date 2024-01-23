@@ -1,9 +1,9 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Dimensions } from "react-native";
 import styles from "./styles";
 import { useState, useEffect } from "react";
 import { Menu } from "../../components/Menu";
 import { StatusBar } from "expo-status-bar";
-// import carouselItems from "../../data/carouselData";
+import { CarouselItem } from "../../components/Carousel";
 
 export function Home({ navigation }: any) {
   return (
@@ -19,25 +19,14 @@ export function Home({ navigation }: any) {
           </Text>
         </View>
         <View style={styles.containerImage}>
-        <Image
-          source={require('../../assets/images/image3.png')}
-          style={styles.image}
-          resizeMode="contain"
-        />
+          <Image
+            source={require("../../assets/images/image3.png")}
+            style={styles.image}
+            resizeMode="contain"
+          />
         </View>
-        {/* <Carousel
-        layout="default"
-        data={carouselItems}
-        renderItem={_renderItem}
-        sliderWidth={340}
-        itemWidth={340}
-        autoplay
-        loop
-        autoplayInterval={5000}
-        dotStyle={styles.carouselDot}
-        inactiveDotStyle={styles.carouselInactiveDot}
-      /> */}
       </View>
+      <CarouselItem />
       <Menu />
     </View>
   );
