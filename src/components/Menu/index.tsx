@@ -13,23 +13,23 @@ export function Menu({ navigation }: any) {
   return (
     <View style={styles.containerMenu}>
       <View style={styles.itemMenu}>
-        <House size={32} color="#000000" />
+        <House size={24} color="#000000" />
         <Text style={styles.txt}>Home</Text>
       </View>
       <View style={styles.itemMenu}>
-        <ShoppingCartSimple size={32} color="#000000" />
+        <ShoppingCartSimple size={24} color="#000000" />
         <Text style={styles.txt}>Carrinho</Text>
       </View>
       <View style={styles.itemMenu}>
-        <MagnifyingGlass size={32} color="#000000" />
+        <MagnifyingGlass size={24} color="#000000" />
         <Text style={styles.txt}>Pesquisar</Text>
       </View>
       <View style={styles.itemMenu}>
-        <Bookmarks size={32} color="#000000" />
+        <Bookmarks size={24} color="#000000" />
         <Text style={styles.txt}>Pedidos</Text>
       </View>
       <View style={styles.itemMenu}>
-        <Heart size={32} color="#000000" />
+        <Heart size={24} color="#000000" />
         <Text style={styles.txt}>Favoritos</Text>
       </View>
     </View>
