@@ -10,7 +10,7 @@ export default StyleSheet.create({
   title: {
     fontSize: 17,
     fontWeight: "600",
-    marginLeft: 15,
+    marginLeft: 23,
   },
   containerItems: {
     width: "100%",

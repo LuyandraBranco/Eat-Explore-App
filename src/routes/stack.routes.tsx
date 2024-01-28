@@ -11,23 +11,18 @@ import { Search } from "../screens/Search";
 import { Food } from "../screens/Food";
 import { RestaurantAbout } from "../screens/RestaurantAbout";
 import { RestaurantMenu } from "../screens/RestaurantMenu";
+import { Profile } from "../screens/Profile";
 
 const { Screen, Navigator } = createStackNavigator();
 
 export function StackRouter() {
   return (
     <Navigator>
-      <Screen
-        name="RestaurantMenu"
-        component={RestaurantMenu}
+       <Screen
+        name="Profile"
+        component={Profile}
         options={{ headerShown: false }}
       />
-      <Screen
-        name="RestaurantAbout"
-        component={RestaurantAbout}
-        options={{ headerShown: false }}
-      />
-      
       <Screen
         name="SplachScreen"
         component={SplachScreen}
@@ -60,6 +55,16 @@ export function StackRouter() {
         options={{ headerShown: false }}
       />
       <Screen name="Food" component={Food} options={{ headerShown: false }} />
+      <Screen
+        name="RestaurantMenu"
+        component={RestaurantMenu}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="RestaurantAbout"
+        component={RestaurantAbout}
+        options={{ headerShown: false }}
+      />
     </Navigator>
   );
 }
