@@ -9,12 +9,19 @@ import { SignUp } from "../screens/SignUp";
 import { Home } from "../screens/Home";
 import { Search } from "../screens/Search";
 import { Food } from "../screens/Food";
+import { RestaurantAbout } from "../screens/RestaurantAbout";
 
 const { Screen, Navigator } = createStackNavigator();
 
 export function StackRouter() {
   return (
     <Navigator>
+      <Screen
+        name="RestaurantAbout"
+        component={RestaurantAbout}
+        options={{ headerShown: false }}
+      />
+      
       <Screen
         name="SplachScreen"
         component={SplachScreen}
