@@ -1,0 +1,40 @@
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import styles from "./styles";
+import { StatusBar } from "expo-status-bar";
+import { CaretLeft, Heart } from "phosphor-react-native";
+import { Menu } from "../../components/Menu";
+import { NavRestaurant } from "../../components/NavRestaurant";
+import { Near } from "../../components/Near";
+import { Card } from "../../components/Card";
+
+export function RestaurantMenu({ navigation }: any) {
+  return (
+    <View style={styles.containerRestaurantMenu}>
+      <StatusBar style="light" backgroundColor="#1E1E1E" />
+      <View style={styles.containerRestaurantItem}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <CaretLeft size={32} color="#000" style={styles.headerArrow} />
+          </TouchableOpacity>
+          <Text style={styles.restaurantName}>LOOKAL BEACH CLUB</Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Heart size={32} color="#F55F5F" style={styles.headerHeart} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.containerImage}>
+          <View style={styles.image}>
+            <Image
+              source={require("../../assets/images/lookal.png")}
+              style={styles.img}
+            />
+          </View>
+        </View>
+        <NavRestaurant/>
+      </View>
+      <View style={styles.containerItems}>
+       <Card/>
+      </View>
+      <Menu />
+    </View>
+  );
+}

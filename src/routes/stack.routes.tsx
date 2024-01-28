@@ -10,12 +10,18 @@ import { Home } from "../screens/Home";
 import { Search } from "../screens/Search";
 import { Food } from "../screens/Food";
 import { RestaurantAbout } from "../screens/RestaurantAbout";
+import { RestaurantMenu } from "../screens/RestaurantMenu";
 
 const { Screen, Navigator } = createStackNavigator();
 
 export function StackRouter() {
   return (
     <Navigator>
+      <Screen
+        name="RestaurantMenu"
+        component={RestaurantMenu}
+        options={{ headerShown: false }}
+      />
       <Screen
         name="RestaurantAbout"
         component={RestaurantAbout}
