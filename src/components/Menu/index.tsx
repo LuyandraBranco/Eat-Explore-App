@@ -15,7 +15,7 @@ export function Menu({ navigation }: any) {
 
   return (
     <View style={styles.containerMenu}>
-      <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+      <TouchableOpacity onPress={() => navigation.navigate("Home", {})}>
         <View style={styles.itemMenu}>
           <House
             size={24}
@@ -45,21 +45,21 @@ export function Menu({ navigation }: any) {
           Carrinho
         </Text>
       </View>
-      <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
-      <View style={styles.itemMenu}>
-        <MagnifyingGlass
-          size={24}
-          color={currentPage === "Pesquisar" ? "#E5383B" : "#000"}
-        />
-        <Text
-          style={[
-            styles.txt,
-            { color: currentPage === "Pesquisar" ? "#E5383B" : "#000" },
-          ]}
-        >
-          Pesquisar
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Search", {})}>
+        <View style={styles.itemMenu}>
+          <MagnifyingGlass
+            size={24}
+            color={currentPage === "Pesquisar" ? "#E5383B" : "#000"}
+          />
+          <Text
+            style={[
+              styles.txt,
+              { color: currentPage === "Pesquisar" ? "#E5383B" : "#000" },
+            ]}
+          >
+            Pesquisar
+          </Text>
+        </View>
       </TouchableOpacity>
       <View style={styles.itemMenu}>
         <Bookmarks
