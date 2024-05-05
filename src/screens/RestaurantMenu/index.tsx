@@ -7,7 +7,8 @@ import { NavRestaurant } from "../../components/NavRestaurant";
 import { Near } from "../../components/Near";
 import { Card } from "../../components/Card";
 
-export function RestaurantMenu({ navigation }: any) {
+export function RestaurantMenu({ route, navigation }: any) {
+  const { restaurantData } = route.params;
   return (
     <View style={styles.containerRestaurantMenu}>
       <StatusBar style="light" backgroundColor="#1E1E1E" />
@@ -29,7 +30,7 @@ export function RestaurantMenu({ navigation }: any) {
             />
           </View>
         </View>
-        <NavRestaurant/>
+        <NavRestaurant navigation={navigation}/>
       </View>
       <View style={styles.containerItems}>
        <Card/>

@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   containerItem: {
     width: "100%",
-    height: "95%",
+    height: "85%",
     alignItems: "center",
   },
   button: {
@@ -48,7 +48,7 @@ export default StyleSheet.create({
   },
   containerContent: {
     width: "100%",
-    height: "50%",
+    height: "47%",
     marginTop: 60,
     backgroundColor: "#fff",
   },

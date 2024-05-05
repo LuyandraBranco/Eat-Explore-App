@@ -3,14 +3,68 @@ import styles from "./styles";
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft, TextT, Vault, X } from "phosphor-react-native";
+import axios from "axios";
+import NetInfo from "@react-native-community/netinfo";
 
 export function SignUp({ navigation }: any) {
+  const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [isConnected, setIsConnected] = useState(true);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state: any) => {
+      setIsConnected(state.isConnected);
+    });
+
+    // Cleanup
+    return () => unsubscribe();
+  }, []);
+  const handleSignUp = async () => {
+    if (!isConnected) {
+      console.error("Sem conexão com a internet");
+      return;
+    }
+
+    try {
+      // Fazer a requisição para cadastrar o usuário
+      const response = await axios.post("http://192.168.1.134:3000/user", {
+        username: `${firstName} ${lastName}`,
+        password,
+        dateBirth: null,
+        address: null,
+        email,
+        imageUrl: null,
+        phone1: null,
+        phone2: null,
+        localizacao: null,
+        firstName,
+        lastName,
+      });
+      console.log("Cadastro realizado com sucesso:", response.data);
+
+      // // Se o cadastro for bem-sucedido, fazer o login
+      // const loginResponse = await axios.post(
+      //   "http://192.168.1.134/user/login",
+      //   {
+      //     email: email,
+      //     password,
+      //   }
+      // );
+      // console.log("Login realizado com sucesso:", loginResponse.data);
+
+      // Armazenar o token de acesso ou usuário no estado global ou AsyncStorage
+      // Redirecionar para a próxima tela
+      navigation.navigate("SignIn");
+    } catch (error) {
+      console.error("Erro durante o cadastro ou login:", error);
+    }
   };
   return (
     <View style={styles.containerUp}>
@@ -37,6 +91,8 @@ export function SignUp({ navigation }: any) {
               style={styles.input}
               placeholder="Nome"
               autoCapitalize="none"
+              value={firstName}
+              onChangeText={(text) => setName(text)}
             />
           </View>
           <View style={styles.formGroup}>
@@ -45,6 +101,8 @@ export function SignUp({ navigation }: any) {
               style={styles.input}
               placeholder="Sobrenome"
               autoCapitalize="none"
+              value={lastName}
+              onChangeText={(text) => setLastName(text)}
             />
           </View>
           <View style={styles.formGroup}>
@@ -78,16 +136,13 @@ export function SignUp({ navigation }: any) {
           </View>
 
           <View style={styles.containerButton}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate("Home")}
-            >
+            <TouchableOpacity style={styles.button} onPress={handleSignUp}>
               <Text style={styles.txtButton}>Criar conta</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
-      <Text style={styles.txtN} onPress={()=>navigation.navigate('SignIn')}>
+      <Text style={styles.txtN} onPress={() => navigation.navigate("SignIn")}>
         Já possuí uma conta? <Text style={styles.txtBold}> Faça Login</Text>
       </Text>
     </View>

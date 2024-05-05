@@ -5,7 +5,8 @@ import { CaretLeft, Heart } from "phosphor-react-native";
 import { Menu } from "../../components/Menu";
 import { NavRestaurant } from "../../components/NavRestaurant";
 
-export function RestaurantAbout({ navigation }: any) {
+export function RestaurantAbout({ route, navigation }: any) {
+  const { restaurantData } = route.params;
   return (
     <View style={styles.containerRestaurantAbout}>
       <StatusBar style="light" backgroundColor="#1E1E1E" />
@@ -14,7 +15,7 @@ export function RestaurantAbout({ navigation }: any) {
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <CaretLeft size={32} color="#000" style={styles.headerArrow} />
           </TouchableOpacity>
-          <Text style={styles.restaurantName}>LOOKAL BEACH CLUB</Text>
+          <Text style={styles.restaurantName}>{restaurantData.name}</Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Heart size={32} color="#F55F5F" style={styles.headerHeart} />
           </TouchableOpacity>
@@ -27,18 +28,18 @@ export function RestaurantAbout({ navigation }: any) {
             />
           </View>
         </View>
-        <NavRestaurant/>
+        <NavRestaurant navigation={navigation}/>
       </View>
       <View style={styles.containerText}>
         <Text style={styles.title}>Horário de Atendimento</Text>
         <Text style={styles.restaurantDescription}>
-          De Segunda à Segundas, das 7:00 até às 23:00
+          De Segunda à Segunda, das {restaurantData.horaAbertura} até às {restaurantData.horaFechamento}
         </Text>
         <Text style={styles.title}>Contactos</Text>
-        <Text style={styles.restaurantDescription}>9234930353</Text>
+        <Text style={styles.restaurantDescription}>{restaurantData.phone1}</Text>
         <Text style={styles.title}>Localização</Text>
         <Text style={styles.restaurantDescription}>
-          Angola, Luanda, Ilha de Luanda
+          {restaurantData.address}
         </Text>
         <View style={styles.containerImage}>
           <View style={styles.image}>
@@ -49,7 +50,7 @@ export function RestaurantAbout({ navigation }: any) {
           </View>
         </View>
       </View>
-      <Menu />
+      <Menu navigation={navigation}/>
     </View>
   );
 }

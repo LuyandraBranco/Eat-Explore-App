@@ -4,10 +4,10 @@ import styles from "./styles";
 export function NavRestaurant({ navigation }: any) {
   return (
     <View style={styles.nav}>
-      <TouchableOpacity onPress={() => navigation.navigate("Search", {})}>
+      <TouchableOpacity onPress={() => navigation.navigate("RestaurantAbout", {})}>
         <Text style={styles.itemNav}>Sobre nós</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Search", {})}>
+      <TouchableOpacity onPress={() => navigation.navigate("RestaurantMenu", {})}>
         <Text style={styles.itemNav}>Menu</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Search", {})}>

@@ -3,9 +3,11 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerItem: {
     flexDirection: "column",
-    width: 328,
+    width: 310,
     height: 143,
     borderRadius: 8,
+    backgroundColor: "#333",
+    marginBottom: 20
   },
   imagem: {
     flex: 1,
@@ -16,11 +18,14 @@ export default StyleSheet.create({
     color: "#fff",
     marginLeft: 20,
     fontWeight: "600",
-    marginBottom: 5,
+    marginBottom: 0,
   },
   location: {
     color: "#fff",
     marginLeft: 20,
-    marginBottom: 5,
+    marginBottom: 1,
   },
+  item:{
+    flexDirection: "column"
+  }
 });

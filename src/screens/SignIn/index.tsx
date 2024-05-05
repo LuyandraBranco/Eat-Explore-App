@@ -3,6 +3,8 @@ import styles from "./styles";
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft, TextT, Vault, X } from "phosphor-react-native";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function SignIn({ navigation }: any) {
   const [email, setEmail] = useState("");
@@ -11,6 +13,30 @@ export function SignIn({ navigation }: any) {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleSignIn = async () => {
+    try {
+      // Fazer a requisição para autenticar o usuário
+      const response = await axios.post("http://192.168.1.134:3000/user/login", {
+        email,
+        password,
+      });
+
+      console.log(response)
+      if (response.data.accessToken) {
+        await AsyncStorage.setItem("email", response.data.user.email);
+        await AsyncStorage.setItem("username", response.data.user.username);
+        await AsyncStorage.setItem("userId", response.data.user.id.toString());
+        navigation.navigate('Tabs', { screen: 'Home' });
+      } else {
+        console.error("Token de acesso não recebido após autenticação");
+      }
+    } catch (error) {
+      console.error("Erro durante a autenticação:", error);
+
+      // Exibir mensagens de erro específicas, se necessário
+    }
   };
   return (
     <View style={styles.containerLogin}>
@@ -66,7 +92,7 @@ export function SignIn({ navigation }: any) {
           <View style={styles.containerButton}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate("Search")}
+              onPress={handleSignIn}
             >
               <Text style={styles.txtButton}>Entrar</Text>
             </TouchableOpacity>

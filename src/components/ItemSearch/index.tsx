@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { View, TextInput, TouchableOpacity, Text, Image } from "react-native";
-import { MagnifyingGlass, Faders } from "phosphor-react-native";
+import React from "react";
+import { View, Text, ImageBackground } from "react-native";
 import styles from "./styles";
 
 interface ItemSearchProps {
   name: string;
-  img: string;
+  img?: string; // tornando a imagem opcional
   location: string;
   price?: number;
   navigation: any;
 }
+
 export function ItemSearch({
   name,
   img,
@@ -18,17 +18,15 @@ export function ItemSearch({
   navigation,
 }: ItemSearchProps) {
   return (
-    <View style={styles.containerItem}>
-      <Image
-        source={require("../../assets/images/logo.jpeg")}
-        style={styles.imagem}
-        resizeMode="contain"
-      />
-      <View>
+    <ImageBackground
+      source={img ? { uri: img } : require("../../assets/images/logo.jpeg")}
+      style={styles.containerItem}
+    >
+      <View style={styles.item}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.location}>{price}</Text>
         <Text style={styles.location}>{location}</Text>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
