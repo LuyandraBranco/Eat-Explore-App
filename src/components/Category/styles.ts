@@ -18,6 +18,13 @@ export default StyleSheet.create({
     marginTop: 5,
     paddingHorizontal: 2.5
   },
+  cards: {
+    width: "100%",
+    height: "auto",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between"
+  },
   itemCategory: {
     flexDirection: "column",
     marginRight: 8,

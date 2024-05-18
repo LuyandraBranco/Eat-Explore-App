@@ -25,9 +25,9 @@ export function Home({ navigation }: any) {
   }, []);
   return (
     <View style={styles.containerHome}>
-      <StatusBar backgroundColor="#fff" />
+      {/* <StatusBar backgroundColor="#000" /> */}
       <View style={styles.header}>
-        <View style={styles.headerText}>
+        <View>
           <Text style={styles.headerTxt}>
             Olá, <Text style={styles.txt}>{name}</Text>
           </Text>
@@ -35,7 +35,6 @@ export function Home({ navigation }: any) {
             O que está procurando hoje?
           </Text>
         </View>
-
         <TouchableOpacity
           style={styles.containerImage}
           onPress={() => navigation.navigate("Profile")}

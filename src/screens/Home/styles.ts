@@ -4,18 +4,16 @@ export default StyleSheet.create({
   containerHome: {
     flex: 1,
     alignItems: "center",
-    flexDirection: 'column'
+    flexDirection: 'column',
+    paddingHorizontal: 24,
+    paddingTop: 40,
   },
   header: {
     width: "100%",
     height: "10%",
-    marginTop: 45,
     flexDirection: "row",
     justifyContent: 'space-between',
     alignItems: "center",
-  },
-  headerText: {
-    marginLeft: 20,
   },
   headerTxt: {
     color: "#000",
@@ -32,8 +30,7 @@ export default StyleSheet.create({
   containerImage: {
     width: 43,
     height: 43,
-    borderRadius: 50,
-    marginRight: 10,
+    borderRadius: 50
   },
   image: {
     flex: 1,

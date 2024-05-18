@@ -1,32 +1,39 @@
-const categoryItems = [
+const categoryData = [
   {
     title: "Hambúrguer",
-    image: require("../assets/images/cat1.png"),
+    src: "../assets/images/cat1.png",
+    genre: "Comida",
   },
   {
     title: "Pizza",
-    image: require("../assets/images/cat2.png"),
+    src: "../assets/images/cat2.png",
+    genre: "Comida",
   },
   {
     title: "Frango",
-    image: require("../assets/images/cat3.png"),
+    src: "../assets/images/cat3.png",
+    genre: "Comida",
   },
   {
     title: "Magoga",
-    image: require("../assets/images/cat4.png"),
+    src: "../assets/images/cat4.png",
+    genre: "Comida",
   },
   {
     title: "Salada",
-    image: require("../assets/images/cat5.png"),
+    src: "../assets/images/cat5.png",
+    genre: "Comida",
   },
   {
     title: "Mariscos",
-    image: require("../assets/images/carousel.png"),
+    src: "../assets/images/carousel.png",
+    genre: "Comida",
   },
   {
     title: "Grelhados",
-    image: require("../assets/images/carousel.png"),
+    src: "../assets/images/carousel.png",
+    genre: "Comida",
   },
 ];
 
-export default categoryItems;
+export default categoryData;

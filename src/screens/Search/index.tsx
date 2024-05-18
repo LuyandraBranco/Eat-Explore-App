@@ -14,11 +14,23 @@ import { Menu } from "../../components/Menu";
 import { ItemSearch } from "../../components/ItemSearch";
 import styles from "./styles";
 import { Faders, MagnifyingGlass } from "phosphor-react-native";
+import { FilterModal } from "../../components/FilterModal";
 
 export function Search({ navigation }: any) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isEditing, setEditing] = useState(false);
+  const [isFilterVisible, setFilterVisible] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState({});
+
+  const toggleFilterModal = () => {
+    setFilterVisible(!isFilterVisible);
+  };
+
+  const applyFilters = (filters: any) => {
+    // Lógica para aplicar os filtros
+    console.log("Filtros aplicados:", filters);
+  };
 
   const handleCancel = () => {
     setEditing(false);
@@ -79,9 +91,17 @@ export function Search({ navigation }: any) {
             </TouchableOpacity>
           )}
           {!isEditing && (
-            <View style={styles.filterIcon}>
+            <TouchableOpacity
+              onPress={toggleFilterModal}
+              style={styles.filterIcon}
+            >
               <Faders size={20} color="black" />
-            </View>
+              <FilterModal
+                visible={isFilterVisible}
+                onClose={toggleFilterModal}
+                onApply={applyFilters}
+              />
+            </TouchableOpacity>
           )}
         </View>
       </View>

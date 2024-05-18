@@ -18,17 +18,20 @@ export function SignIn({ navigation }: any) {
   const handleSignIn = async () => {
     try {
       // Fazer a requisição para autenticar o usuário
-      const response = await axios.post("http://192.168.1.134:3000/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://192.168.1.134:3000/user/login",
+        {
+          email,
+          password,
+        }
+      );
 
-      console.log(response)
+      console.log(response);
       if (response.data.accessToken) {
         await AsyncStorage.setItem("email", response.data.user.email);
         await AsyncStorage.setItem("username", response.data.user.username);
         await AsyncStorage.setItem("userId", response.data.user.id.toString());
-        navigation.navigate('Tabs', { screen: 'Home' });
+        navigation.navigate("Tabs", { screen: "Home" });
       } else {
         console.error("Token de acesso não recebido após autenticação");
       }
@@ -43,7 +46,7 @@ export function SignIn({ navigation }: any) {
       <StatusBar style="light" backgroundColor="#1E1E1E" />
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-        <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
+          <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
         </TouchableOpacity>
       </View>
 
@@ -90,10 +93,7 @@ export function SignIn({ navigation }: any) {
           <Text style={styles.txtAccount}>Esqueci minha senha</Text>
 
           <View style={styles.containerButton}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={handleSignIn}
-            >
+            <TouchableOpacity style={styles.button} onPress={handleSignIn}>
               <Text style={styles.txtButton}>Entrar</Text>
             </TouchableOpacity>
           </View>
@@ -108,7 +108,7 @@ export function SignIn({ navigation }: any) {
           </View>
         </View>
       </View>
-      <Text style={styles.txtN} onPress={()=>navigation.navigate('SignUp')}>
+      <Text style={styles.txtN} onPress={() => navigation.navigate("SignUp")}>
         Novo no Eat Explore? <Text style={styles.txtBold}> Crie uma conta</Text>
       </Text>
     </View>
