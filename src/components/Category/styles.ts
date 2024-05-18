@@ -3,27 +3,27 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerCategory: {
     width: "100%",
-    height: "16%",
+    height: "39%",
     marginTop: 15,
     flexDirection: "column",
   },
   title: {
     fontSize: 18,
     fontWeight: "600",
-    marginLeft: 15,
+    marginBottom: 15,
   },
-  containerItems: {
+  containerButtons: {
     width: "100%",
-    height: 90,
-    marginTop: 5,
-    paddingHorizontal: 2.5
+    height: 50,
+    flexDirection: "row",
   },
   cards: {
     width: "100%",
     height: "auto",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginTop: 10,
   },
   itemCategory: {
     flexDirection: "column",
@@ -35,6 +35,6 @@ export default StyleSheet.create({
     width: 65,
     height: 60,
     borderRadius: 15,
-    marginBottom: 2
+    marginBottom: 2,
   },
 });

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Dimensions, View, Image } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import carouselItems from "../../data/carouselData";
+import { Dots } from "../Dots";
 import styles from "./styles";
-import Dots from "../Dots";
 
 export function CarouselItem() {
   const width = 358;

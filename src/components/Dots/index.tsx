@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
 
-const Dots = ({ activeIndex, length }:any) => {
+export function Dots ({ activeIndex, length }:any) {
   return (
     <View style={styles.dotsContainer}>
       {Array.from({ length }).map((_, index) => (
@@ -18,4 +18,4 @@ const Dots = ({ activeIndex, length }:any) => {
   );
 };
 
-export default Dots;
+
