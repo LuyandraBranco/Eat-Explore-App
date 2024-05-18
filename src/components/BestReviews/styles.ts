@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerBest: {
     width: "100%",
-    height: "19%",
+    height: "13%",
     marginTop: 15,
     flexDirection: "column",
   },

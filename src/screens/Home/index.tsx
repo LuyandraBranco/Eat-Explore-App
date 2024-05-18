@@ -45,10 +45,12 @@ export function Home({ navigation }: any) {
           />
         </TouchableOpacity>
       </View>
-      <CarouselItem />
-      <Category />
-      <BestReviews />
-      <Near />
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <CarouselItem />
+        <Category />
+        <BestReviews />
+        <Near />
+      </ScrollView>
     </View>
   );
 }

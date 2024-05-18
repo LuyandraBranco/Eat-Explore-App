@@ -3,14 +3,13 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerNear: {
     width: "100%",
-    height: "19%",
+    height: "13%",
     marginTop: 15,
     flexDirection: "column",
   },
   title: {
     fontSize: 18,
     fontWeight: "600",
-    marginLeft: 15,
   },
   containerItems: {
     width: "100%",
@@ -20,12 +19,11 @@ export default StyleSheet.create({
   itemCategory: {
     flexDirection: "column",
     marginRight: 8,
-   
   },
   image: {
     width: 118,
     height: 80,
     borderRadius: 6,
-    marginBottom: 2
+    marginBottom: 2,
   },
 });

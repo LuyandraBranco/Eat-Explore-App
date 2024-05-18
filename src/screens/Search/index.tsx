@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StatusBar,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View } from "react-native";
 import axios from "axios";
-import { SearchComponent } from "../../components/SearchComponent";
-import { Menu } from "../../components/Menu";
-import { ItemSearch } from "../../components/ItemSearch";
+import { SearchInput } from "../../components/SearchInput";
 import styles from "./styles";
-import { Faders, MagnifyingGlass } from "phosphor-react-native";
 import { FilterModal } from "../../components/FilterModal";
+import { SearchResults } from "../../components/SearchResults";
 
 export function Search({ navigation }: any) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isEditing, setEditing] = useState(false);
   const [isFilterVisible, setFilterVisible] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState({});
 
   const toggleFilterModal = () => {
     setFilterVisible(!isFilterVisible);
@@ -51,7 +40,6 @@ export function Search({ navigation }: any) {
   };
 
   useEffect(() => {
-    console.log("Estou sendo executado");
     if (searchTerm.length > 0) {
       searchRestaurants(searchTerm);
     } else {
@@ -61,83 +49,24 @@ export function Search({ navigation }: any) {
 
   return (
     <View style={styles.containerSearch}>
-      <StatusBar backgroundColor="#fff" />
-      <View style={styles.header}>
-        {/* <SearchComponent
-          onChange={(text: string) => {
-            console.log("Search term:", text);
-            setSearchTerm(text);
-          }}
-        /> */}
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            placeholder="Pesquisar"
-            value={searchTerm}
-            onChangeText={(text) => setSearchTerm(text)}
-            onFocus={() => setEditing(true)}
-            onBlur={() => setEditing(false)}
-          />
-
-          <View style={styles.iconContainer}>
-            <MagnifyingGlass size={20} color="black" />
-          </View>
-          {isEditing && (
-            <TouchableOpacity
-              onPress={handleCancel}
-              style={styles.cancelButton}
-            >
-              <Text>Cancelar</Text>
-            </TouchableOpacity>
-          )}
-          {!isEditing && (
-            <TouchableOpacity
-              onPress={toggleFilterModal}
-              style={styles.filterIcon}
-            >
-              <Faders size={20} color="black" />
-              <FilterModal
-                visible={isFilterVisible}
-                onClose={toggleFilterModal}
-                onApply={applyFilters}
-              />
-            </TouchableOpacity>
-          )}
-        </View>
-      </View>
-      <View style={styles.containerItem}>
-        {!isEditing && searchResults.length === 0 && (
-          <Text style={styles.txt}>
-            Que tipo de prato ou restaurante você está buscando hoje?
-          </Text>
-        )}
-        {searchResults.length > 0 && (
-          <FlatList
-            data={searchResults}
-            keyExtractor={(item: any) => item.id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("RestaurantAbout", {
-                    restaurantData: item,
-                  })
-                }
-              >
-                <ItemSearch
-                  name={item.name}
-                  img={item.photoPath}
-                  location={item.address}
-                  price={item.price}
-                  navigation={navigation}
-                />
-              </TouchableOpacity>
-            )}
-          />
-        )}
-        {searchResults.length === 0 && isEditing && (
-          <Text style={styles.txt}>Nada foi encontrado.</Text>
-        )}
-      </View>
+      <SearchInput
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        isEditing={isEditing}
+        setEditing={setEditing}
+        handleCancel={handleCancel}
+        toggleFilterModal={toggleFilterModal}
+      />
+      <FilterModal
+        visible={isFilterVisible}
+        onClose={toggleFilterModal}
+        onApply={applyFilters}
+      />
+      <SearchResults
+        searchResults={searchResults}
+        navigation={navigation}
+        isEditing={isEditing}
+      />
     </View>
   );
 }

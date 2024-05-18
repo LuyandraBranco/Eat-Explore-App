@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerCategory: {
     width: "100%",
-    height: "39%",
+    height: "26%",
     marginTop: 15,
     flexDirection: "column",
   },
@@ -11,6 +11,13 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 15,
+  },
+  txt: {
+    marginTop: 7,
+    marginBottom: 10,
+    color: "#000",
+    fontSize: 16,
+    fontWeight: "600"
   },
   containerButtons: {
     width: "100%",

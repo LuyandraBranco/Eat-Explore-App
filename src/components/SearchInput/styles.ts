@@ -6,13 +6,13 @@ export default StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
     paddingHorizontal: 20,
-    paddingTop: 35,
+    paddingTop: 40,
   },
   header: {
     width: "100%",
     height: "10%",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: 'center',
     alignItems: "center",
   },
   headerTxt: {
@@ -22,20 +22,20 @@ export default StyleSheet.create({
   headerDescription: {
     color: "#000",
   },
-  containerItem: {
+  containerItem:{
     width: "80%",
     height: "70%",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   txt: {
-    textAlign: "center",
+   textAlign: "center"
   },
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     width: 335,
     height: 40,
-    alignItems: "center",
+    alignItems: 'center',
   },
   iconContainer: {
     position: "absolute",
@@ -43,7 +43,7 @@ export default StyleSheet.create({
   },
   input: {
     flex: 1,
-    backgroundColor: "#D9D9D9",
+    backgroundColor: '#D9D9D9',
     borderRadius: 5,
     paddingVertical: 8,
     paddingHorizontal: 40,
