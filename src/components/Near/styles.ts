@@ -15,8 +15,7 @@ export default StyleSheet.create({
   containerItems: {
     width: "100%",
     height: 120,
-    marginTop: 5,
-    paddingHorizontal: 5
+    marginTop: 15,
   },
   itemCategory: {
     flexDirection: "column",

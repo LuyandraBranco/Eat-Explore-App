@@ -3,8 +3,9 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerHome: {
     flex: 1,
+    height: "auto",
     alignItems: "center",
-    flexDirection: 'column',
+    flexDirection: "column",
     paddingHorizontal: 24,
     paddingTop: 40,
   },
@@ -12,7 +13,7 @@ export default StyleSheet.create({
     width: "100%",
     height: "10%",
     flexDirection: "row",
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     alignItems: "center",
   },
   headerTxt: {
@@ -22,7 +23,7 @@ export default StyleSheet.create({
   txt: {
     color: "#F55F5F",
     fontSize: 18,
-    fontWeight: "600"
+    fontWeight: "600",
   },
   headerDescription: {
     color: "#000",
@@ -30,7 +31,7 @@ export default StyleSheet.create({
   containerImage: {
     width: 43,
     height: 43,
-    borderRadius: 50
+    borderRadius: 50,
   },
   image: {
     flex: 1,

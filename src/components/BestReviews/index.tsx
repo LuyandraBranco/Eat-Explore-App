@@ -11,7 +11,7 @@ import {
 import bestReviewsItems from "../../data/bestReviewsData";
 
 export function BestReviews({ navigation }: any) {
-
+  
   // Função para renderizar cada item da lista
   const renderItem = ({ item }: any) => (
     <TouchableOpacity
@@ -20,7 +20,7 @@ export function BestReviews({ navigation }: any) {
         console.log(`Categoria selecionada: ${item.title}`);
       }}
     >
-      <Image source={item.image} style={styles.image}/>
+      <Image source={item.image} style={styles.image} />
       <Text>{item.title}</Text>
     </TouchableOpacity>
   );
@@ -32,9 +32,9 @@ export function BestReviews({ navigation }: any) {
           data={bestReviewsItems}
           renderItem={renderItem}
           keyExtractor={(item) => item.title}
-          horizontal
+          horizontal={true}
           showsHorizontalScrollIndicator={true}
-          contentContainerStyle={styles.containerItems}
+          contentContainerStyle={{ flexGrow: 1 }}
         />
       </View>
     </View>
