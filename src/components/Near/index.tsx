@@ -32,9 +32,9 @@ export function Near({ navigation }: any) {
           data={nearItems}
           renderItem={renderItem}
           keyExtractor={(item) => item.title}
-          horizontal
+          horizontal={true}
           showsHorizontalScrollIndicator={true}
-          contentContainerStyle={styles.containerItems}
+          contentContainerStyle={{ flexGrow: 1 }}
         />
       </View>
     </View>
