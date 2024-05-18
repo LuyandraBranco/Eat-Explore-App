@@ -3,19 +3,30 @@ import { View, Text, Modal, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import { X } from "phosphor-react-native";
 import { FilterElement } from "../FilterElement";
+import { CookingFilter } from "../CookingFilter";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
+  const [expandedFilter, setExpandedFilter] = useState("");
+
+  const toggleFilter = (filterName: string) => {
+    if (expandedFilter === filterName) {
+      setExpandedFilter("");
+    } else {
+      setExpandedFilter(filterName);
+    }
+  };
+
   return (
     <Modal
       visible={visible}
       animationType="slide"
       transparent={true}
-      onRequestClose={onClose}
+      // onRequestClose={onClose}
     >
       <TouchableOpacity
         style={styles.modalContainer}
         activeOpacity={1}
-        onPressOut={onClose}
+        // onPressOut={onClose}
       >
         <View style={styles.modalContent}>
           <View style={styles.headerContainer}>
@@ -25,40 +36,40 @@ export function FilterModal({ visible, onClose, onApply }: any) {
           </View>
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             <Text style={styles.modalTitle}>Selecione seus filtros:</Text>
-            <FilterElement title="Localização">
+            <FilterElement
+              title="Localização"
+              expanded={expandedFilter === "Localização"}
+              onPress={() => toggleFilter("Localização")}
+            >
               <Text>Italiana</Text>
               <Text>Japonesa</Text>
               <Text>Mexicana</Text>
               <Text>Vegetariana</Text>
-              {/* Continue para outras opções */}
             </FilterElement>
-            <FilterElement title="Tipo Culinária">
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
-              {/* Continue para outras opções */}
+            <FilterElement
+              title="Tipo Culinária"
+              expanded={expandedFilter === "Tipo Culinária"}
+              onPress={() => toggleFilter("Tipo Culinária")}
+            >
+             <CookingFilter/>
             </FilterElement>
             <FilterElement title="Preço">
               <Text>Italiana</Text>
               <Text>Japonesa</Text>
               <Text>Mexicana</Text>
               <Text>Vegetariana</Text>
-              {/* Continue para outras opções */}
             </FilterElement>
             <FilterElement title="Avaliação">
               <Text>Italiana</Text>
               <Text>Japonesa</Text>
               <Text>Mexicana</Text>
               <Text>Vegetariana</Text>
-              {/* Continue para outras opções */}
             </FilterElement>
             <FilterElement title="Horário de Funcionamento">
               <Text>Italiana</Text>
               <Text>Japonesa</Text>
               <Text>Mexicana</Text>
               <Text>Vegetariana</Text>
-              {/* Continue para outras opções */}
             </FilterElement>
             <FilterElement title="Ambiente">
               <Text>Italiana</Text>
