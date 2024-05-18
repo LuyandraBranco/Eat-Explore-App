@@ -3,6 +3,7 @@ import {StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerHome: {
     flex: 1,
+    height: "auto",
     alignItems: "center",
     flexDirection: 'column',
     paddingHorizontal: 20,
@@ -44,5 +45,6 @@ export default StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
+    paddingBottom: 120
   },
 });

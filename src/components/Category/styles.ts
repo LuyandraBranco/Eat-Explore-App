@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   containerCategory: {
     width: "100%",
-    height: "26%",
+    height: "39%",
     marginTop: 15,
     flexDirection: "column",
   },
@@ -26,10 +26,8 @@ export default StyleSheet.create({
   },
   cards: {
     width: "100%",
-    height: "auto",
+    height: "99%",
     flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
     marginTop: 10,
   },
   itemCategory: {

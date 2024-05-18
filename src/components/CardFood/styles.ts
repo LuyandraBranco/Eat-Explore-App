@@ -8,9 +8,10 @@ export default StyleSheet.create({
     justifyContent: "flex-end",
   },
   card: {
-    width: "48%",
+    width: "50%",
     height: 200,
     marginBottom: 10,
+    paddingRight: 10,
   },
   textContainer: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",

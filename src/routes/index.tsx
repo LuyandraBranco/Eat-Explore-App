@@ -23,7 +23,6 @@ export function Routes() {
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
-
         <Stack.Screen name="RestaurantAbout" component={RestaurantAbout} />
         <Stack.Screen name="RestaurantMenu" component={RestaurantMenu} />
         <Stack.Screen name="Profile" component={Profile} />

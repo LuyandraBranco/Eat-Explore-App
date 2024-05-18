@@ -40,6 +40,7 @@ export function Category({ navigation }: any) {
       <Text style={styles.txt}>{selectedGenre}</Text>
       <ScrollView
         contentContainerStyle={styles.cards}
+        horizontal={true}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
