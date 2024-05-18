@@ -8,6 +8,7 @@ import { PriceFilter } from "../PriceFilter";
 import { StarReviewsFilter } from "../StarReviewsFilter";
 import { HourFilter } from "../HourFilter";
 import { ReservationsFilter } from "../ReservationsFilter";
+import { PromotionFilter } from "../PromotionsFilter";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
@@ -80,10 +81,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               <ReservationsFilter />
             </FilterElement>
             <FilterElement title="Promoções">
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
+             <PromotionFilter/>
             </FilterElement>
           </ScrollView>
           <TouchableOpacity style={styles.applyButton}>
