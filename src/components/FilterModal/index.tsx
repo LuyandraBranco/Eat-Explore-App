@@ -4,6 +4,8 @@ import styles from "./styles";
 import { X } from "phosphor-react-native";
 import { FilterElement } from "../FilterElement";
 import { CookingFilter } from "../CookingFilter";
+import { PriceFilter } from "../PriceFilter";
+import { StarReviewsFilter } from "../StarReviewsFilter";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
@@ -51,19 +53,17 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               expanded={expandedFilter === "Tipo Culinária"}
               onPress={() => toggleFilter("Tipo Culinária")}
             >
-             <CookingFilter/>
+              <CookingFilter />
             </FilterElement>
-            <FilterElement title="Preço">
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
+            <FilterElement
+              title="Preço"
+              expanded={expandedFilter === "Preço"}
+              onPress={() => toggleFilter("Preço")}
+            >
+              <PriceFilter />
             </FilterElement>
             <FilterElement title="Avaliação">
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
+              <StarReviewsFilter/>
             </FilterElement>
             <FilterElement title="Horário de Funcionamento">
               <Text>Italiana</Text>

@@ -1,6 +1,7 @@
 import { CaretDown } from "phosphor-react-native";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import styles from "./styles";
 
 export function FilterElement({ title, children }: any) {
   const [expanded, setExpanded] = useState(false);
@@ -23,28 +24,3 @@ export function FilterElement({ title, children }: any) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  filterLocationContainer: {
-    marginBottom: 10,
-  },
-  filterHeader: {
-    padding: 10,
-    backgroundColor: "#f0f0f0",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    borderRadius: 5,
-  },
-  filterTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  filterOptionsContainer: {
-    marginTop: 5,
-    padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
-});
