@@ -45,6 +45,6 @@ export default StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
-    paddingBottom: 120
+    paddingBottom: 20
   },
 });

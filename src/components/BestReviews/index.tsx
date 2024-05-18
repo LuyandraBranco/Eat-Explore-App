@@ -33,7 +33,7 @@ export function BestReviews({ navigation }: any) {
           renderItem={renderItem}
           keyExtractor={(item) => item.title}
           horizontal={true}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ flexGrow: 1 }}
         />
       </View>

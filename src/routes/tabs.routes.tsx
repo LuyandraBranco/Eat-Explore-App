@@ -83,7 +83,7 @@ export function TabsRouter() {
         headerShown: false,
         tabBarStyle: {
           height: 60,
-          position: "absolute",
+          // position: "absolute",
           margin: 16,
           borderRadius: 16,
           justifyContent: "center",

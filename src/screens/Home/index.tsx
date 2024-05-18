@@ -45,7 +45,11 @@ export function Home({ navigation }: any) {
           />
         </TouchableOpacity>
       </View>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
         <CarouselItem />
         <Category />
         <BestReviews />

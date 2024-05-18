@@ -38,25 +38,26 @@ export function Category({ navigation }: any) {
         </ScrollView>
       </View>
       <Text style={styles.txt}>{selectedGenre}</Text>
-      <ScrollView
-        contentContainerStyle={styles.cards}
-        horizontal={true}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
-        {filteredFood.map((food: Food) => (
-          <CardFood
-            key={food.title}
-            image={food.image}
-            foodName={food.title}
-            onPress={() =>
-              navigation.navigate("Food", {
-                foodData: food,
-              })
-            }
-          />
-        ))}
-      </ScrollView>
+      <View style={styles.cards}>
+        <ScrollView
+          horizontal={true}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
+          {filteredFood.map((food: Food) => (
+            <CardFood
+              key={food.title}
+              image={food.image}
+              foodName={food.title}
+              onPress={() =>
+                navigation.navigate("Food", {
+                  foodData: food,
+                })
+              }
+            />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 }
