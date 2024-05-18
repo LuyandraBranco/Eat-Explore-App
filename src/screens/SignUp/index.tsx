@@ -1,4 +1,11 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
 import styles from "./styles";
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -67,8 +74,7 @@ export function SignUp({ navigation }: any) {
     }
   };
   return (
-    <View style={styles.containerUp}>
-      <StatusBar style="light" backgroundColor="#1E1E1E" />
+    <SafeAreaView style={styles.containerUp}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
@@ -145,6 +151,6 @@ export function SignUp({ navigation }: any) {
       <Text style={styles.txtN} onPress={() => navigation.navigate("SignIn")}>
         Já possuí uma conta? <Text style={styles.txtBold}> Faça Login</Text>
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }

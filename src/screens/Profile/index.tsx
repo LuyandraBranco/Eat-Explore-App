@@ -17,7 +17,7 @@ import {
 } from "phosphor-react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
-import { Menu } from "../../components/Menu";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Profile({ navigation }: any) {
   const [email, setEmail] = useState<string | null>(null);
@@ -59,8 +59,7 @@ export function Profile({ navigation }: any) {
   };
 
   return (
-    <View style={styles.containerProfile}>
-      <StatusBar style="light" backgroundColor="#1E1E1E" />
+    <SafeAreaView style={styles.containerProfile}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <CaretLeft size={32} color="#000" style={styles.headerArrow} />
@@ -109,6 +108,6 @@ export function Profile({ navigation }: any) {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

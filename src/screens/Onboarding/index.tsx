@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CaretLeft } from "phosphor-react-native";
 import { StatusBar } from "expo-status-bar";
 import onboardingData from "../../data/onboardingData";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Onboarding({ navigation }: any) {
   const [currentScreen, setCurrentScreen] = useState(0);
@@ -24,7 +25,7 @@ export function Onboarding({ navigation }: any) {
   };
 
   return (
-    <View style={[styles.containerOnboarding]}>
+    <SafeAreaView style={[styles.containerOnboarding]}>
       <StatusBar style="light" backgroundColor="#1E1E1E" />
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack}>
@@ -61,6 +62,6 @@ export function Onboarding({ navigation }: any) {
           <Text style={styles.txtButton}>Avançar</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

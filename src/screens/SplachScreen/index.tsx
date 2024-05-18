@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, SafeAreaView } from "react-native";
 import styles from "./styles";
 import { useState, useEffect } from "react";
 
@@ -12,7 +12,7 @@ export function SplachScreen({ navigation }: any) {
   }, []);
 
   return (
-    <View style={[styles.containeSplach]}>
+    <SafeAreaView style={[styles.containeSplach]}>
       <View style={[styles.imageContainer]}>
         <Image
           source={require("../../assets/images/logo.jpeg")}
@@ -20,6 +20,6 @@ export function SplachScreen({ navigation }: any) {
           resizeMode="contain"
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

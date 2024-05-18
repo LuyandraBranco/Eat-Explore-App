@@ -2,14 +2,13 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft, Heart } from "phosphor-react-native";
-import { Menu } from "../../components/Menu";
 import { NavRestaurant } from "../../components/NavRestaurant";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function RestaurantAbout({ route, navigation }: any) {
   const { restaurantData } = route.params;
   return (
-    <View style={styles.containerRestaurantAbout}>
-      <StatusBar style="light" backgroundColor="#1E1E1E" />
+    <SafeAreaView style={styles.containerRestaurantAbout}>
       <View style={styles.containerRestaurantItem}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -28,15 +27,18 @@ export function RestaurantAbout({ route, navigation }: any) {
             />
           </View>
         </View>
-        <NavRestaurant navigation={navigation}/>
+        <NavRestaurant navigation={navigation} />
       </View>
       <View style={styles.containerText}>
         <Text style={styles.title}>Horário de Atendimento</Text>
         <Text style={styles.restaurantDescription}>
-          De Segunda à Segunda, das {restaurantData.horaAbertura} até às {restaurantData.horaFechamento}
+          De Segunda à Segunda, das {restaurantData.horaAbertura} até às{" "}
+          {restaurantData.horaFechamento}
         </Text>
         <Text style={styles.title}>Contactos</Text>
-        <Text style={styles.restaurantDescription}>{restaurantData.phone1}</Text>
+        <Text style={styles.restaurantDescription}>
+          {restaurantData.phone1}
+        </Text>
         <Text style={styles.title}>Localização</Text>
         <Text style={styles.restaurantDescription}>
           {restaurantData.address}
@@ -50,7 +52,6 @@ export function RestaurantAbout({ route, navigation }: any) {
           </View>
         </View>
       </View>
-      <Menu navigation={navigation}/>
-    </View>
+    </SafeAreaView>
   );
 }

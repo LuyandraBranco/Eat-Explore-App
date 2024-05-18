@@ -2,15 +2,15 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft, Heart } from "phosphor-react-native";
-import { Menu } from "../../components/Menu";
 import { NavRestaurant } from "../../components/NavRestaurant";
 import { Near } from "../../components/Near";
 import { Card } from "../../components/Card";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function RestaurantMenu({ route, navigation }: any) {
   const { restaurantData } = route.params;
   return (
-    <View style={styles.containerRestaurantMenu}>
+    <SafeAreaView style={styles.containerRestaurantMenu}>
       <StatusBar style="light" backgroundColor="#1E1E1E" />
       <View style={styles.containerRestaurantItem}>
         <View style={styles.header}>
@@ -35,7 +35,6 @@ export function RestaurantMenu({ route, navigation }: any) {
       <View style={styles.containerItems}>
        <Card/>
       </View>
-      <Menu />
-    </View>
+    </SafeAreaView>
   );
 }

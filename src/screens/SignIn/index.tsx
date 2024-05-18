@@ -1,4 +1,11 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
 import styles from "./styles";
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -42,8 +49,7 @@ export function SignIn({ navigation }: any) {
     }
   };
   return (
-    <View style={styles.containerLogin}>
-      <StatusBar style="light" backgroundColor="#1E1E1E" />
+    <SafeAreaView style={styles.containerLogin}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
@@ -111,6 +117,6 @@ export function SignIn({ navigation }: any) {
       <Text style={styles.txtN} onPress={() => navigation.navigate("SignUp")}>
         Novo no Eat Explore? <Text style={styles.txtBold}> Crie uma conta</Text>
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
