@@ -6,6 +6,7 @@ import { FilterElement } from "../FilterElement";
 import { CookingFilter } from "../CookingFilter";
 import { PriceFilter } from "../PriceFilter";
 import { StarReviewsFilter } from "../StarReviewsFilter";
+import { HourFilter } from "../HourFilter";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
@@ -66,10 +67,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               <StarReviewsFilter/>
             </FilterElement>
             <FilterElement title="Horário de Funcionamento">
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
+              <HourFilter/>
             </FilterElement>
             <FilterElement title="Ambiente">
               <Text>Italiana</Text>

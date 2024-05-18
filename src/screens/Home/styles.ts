@@ -7,7 +7,7 @@ export default StyleSheet.create({
     alignItems: "center",
     flexDirection: 'column',
     paddingHorizontal: 20,
-    paddingTop: 35,
+    paddingTop: 10,
   },
   header: {
     width: "100%",

@@ -8,6 +8,7 @@ import { Near } from "../../components/Near";
 import { BestReviews } from "../../components/BestReviews";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Home({ navigation }: any) {
   const [name, setName] = useState<string | null>(null);
@@ -24,7 +25,7 @@ export function Home({ navigation }: any) {
     retrieveUserData();
   }, []);
   return (
-    <View style={styles.containerHome}>
+    <SafeAreaView style={styles.containerHome}>
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTxt}>
@@ -55,6 +56,6 @@ export function Home({ navigation }: any) {
         <BestReviews />
         <Near />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
