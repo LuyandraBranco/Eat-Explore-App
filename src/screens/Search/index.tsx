@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View } from "react-native";
+import { KeyboardAvoidingView, Platform, View } from "react-native";
 import axios from "axios";
 import { SearchInput } from "../../components/SearchInput";
 import styles from "./styles";
@@ -48,7 +48,10 @@ export function Search({ navigation }: any) {
   }, [searchTerm]);
 
   return (
-    <View style={styles.containerSearch}>
+    <KeyboardAvoidingView
+      style={styles.containerSearch}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <SearchInput
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -67,6 +70,6 @@ export function Search({ navigation }: any) {
         navigation={navigation}
         isEditing={isEditing}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
