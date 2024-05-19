@@ -15,7 +15,6 @@ export default StyleSheet.create({
     width: "40%",
     height: "100%",
     marginRight: 1,
-    // borderRadius: 6
   },
   image: {
     flex: 1,
@@ -30,17 +29,17 @@ export default StyleSheet.create({
     color: "#1E1E1E",
     fontSize: 16,
     marginBottom: 6,
-    fontFamily: "Inter_600SemiBold",
-    marginRight: 15
+    fontFamily: "Inter_500Medium",
+    marginRight: 15,
   },
   subtitle: {
     color: "#1E1E1E",
     fontSize: 14,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "Inter_400Regular",
     marginRight: 15,
-    marginTop: 5
+    marginTop: 5,
   },
   button: {
-    marginRight: 20
+    marginRight: 20,
   },
 });

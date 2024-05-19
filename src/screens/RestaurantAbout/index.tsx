@@ -1,9 +1,14 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 import styles from "./styles";
-import { StatusBar } from "expo-status-bar";
 import { CaretLeft, Heart } from "phosphor-react-native";
 import { NavRestaurant } from "../../components/NavRestaurant";
-import { SafeAreaView } from "react-native-safe-area-context";
+import MapView from "react-native-maps";
 
 export function RestaurantAbout({ route, navigation }: any) {
   const { restaurantData } = route.params;
@@ -12,11 +17,11 @@ export function RestaurantAbout({ route, navigation }: any) {
       <View style={styles.containerRestaurantItem}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <CaretLeft size={32} color="#000" style={styles.headerArrow} />
+            <CaretLeft size={24} color="#000" style={styles.headerArrow} />
           </TouchableOpacity>
           <Text style={styles.restaurantName}>{restaurantData.name}</Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Heart size={32} color="#F55F5F" style={styles.headerHeart} />
+            <Heart size={25} color="#F55F5F" style={styles.headerHeart} />
           </TouchableOpacity>
         </View>
         <View style={styles.containerImage}>
@@ -43,12 +48,9 @@ export function RestaurantAbout({ route, navigation }: any) {
         <Text style={styles.restaurantDescription}>
           {restaurantData.address}
         </Text>
-        <View style={styles.containerImage}>
-          <View style={styles.image}>
-            <Image
-              source={require("../../assets/images/map.png")}
-              style={styles.img}
-            />
+        <View style={styles.containerMap}>
+          <View style={styles.mapContainer}>
+            <MapView style={styles.map} />
           </View>
         </View>
       </View>

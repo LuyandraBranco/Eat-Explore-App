@@ -5,12 +5,12 @@ export default StyleSheet.create({
     width: "100%",
     height: 50,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
   itemNav: {
-    fontWeight: "500",
+    fontFamily: "Inter_500Medium",
   },
 });
