@@ -1,7 +1,14 @@
-import { View, Text, Image, Dimensions, ScrollView } from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  ScrollView,
+  BackHandler,
+  ToastAndroid,
+} from "react-native";
 import styles from "./styles";
-import { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
 import { CarouselItem } from "../../components/Carousel";
 import { Category } from "../../components/Category";
 import { Near } from "../../components/Near";
@@ -12,6 +19,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Home({ navigation }: any) {
   const [name, setName] = useState<string | null>(null);
+  const [backPressedOnce, setBackPressedOnce] = useState(false);
+
   useEffect(() => {
     const retrieveUserData = async () => {
       try {
@@ -24,6 +33,31 @@ export function Home({ navigation }: any) {
 
     retrieveUserData();
   }, []);
+
+  const handleBackPress = useCallback(() => {
+    if (backPressedOnce) {
+      BackHandler.exitApp();
+      return true;
+    }
+
+    setBackPressedOnce(true);
+    ToastAndroid.show("Pressione novamente para sair", ToastAndroid.SHORT);
+
+    setTimeout(() => {
+      setBackPressedOnce(false);
+    }, 2000);
+
+    return true;
+  }, [backPressedOnce]);
+
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", handleBackPress);
+
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", handleBackPress);
+    };
+  }, [handleBackPress]);
+
   return (
     <SafeAreaView style={styles.containerHome}>
       <View style={styles.header}>

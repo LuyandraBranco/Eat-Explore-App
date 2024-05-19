@@ -24,7 +24,6 @@ export function SignIn({ navigation }: any) {
 
   const handleSignIn = async () => {
     try {
-      // Fazer a requisição para autenticar o usuário
       const response = await axios.post(
         "http://192.168.1.134:3000/user/login",
         {
@@ -44,8 +43,6 @@ export function SignIn({ navigation }: any) {
       }
     } catch (error) {
       console.error("Erro durante a autenticação:", error);
-
-      // Exibir mensagens de erro específicas, se necessário
     }
   };
   return (
@@ -77,9 +74,7 @@ export function SignIn({ navigation }: any) {
               onChangeText={(text) => setEmail(text)}
             />
           </View>
-
           <Text style={styles.txtInput}>Senha</Text>
-
           <View style={styles.passwordContainer}>
             <TextInput
               style={styles.passwordInput}
@@ -95,9 +90,7 @@ export function SignIn({ navigation }: any) {
               <Text>{showPassword ? "👁️" : "👁️‍🗨️"}</Text>
             </TouchableOpacity>
           </View>
-
           <Text style={styles.txtAccount}>Esqueci minha senha</Text>
-
           <View style={styles.containerButton}>
             <TouchableOpacity style={styles.button} onPress={handleSignIn}>
               <Text style={styles.txtButton}>Entrar</Text>

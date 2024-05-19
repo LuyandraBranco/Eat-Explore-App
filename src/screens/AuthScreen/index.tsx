@@ -6,10 +6,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from "./styles";
+import { StatusBar } from "expo-status-bar";
 
 export function AuthScreen({ navigation }: any) {
   return (
     <SafeAreaView style={styles.containerAuth}>
+      <StatusBar backgroundColor="#fff" />
       <View style={styles.imageContainer}>
         <Image
           source={require("../../assets/images/screen.png")}
