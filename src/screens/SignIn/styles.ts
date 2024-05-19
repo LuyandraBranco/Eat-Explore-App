@@ -6,26 +6,30 @@ export default StyleSheet.create({
     backgroundColor: "#101114",
     alignItems: "center",
     flexDirection: "column",
+    paddingHorizontal: 24,
+    paddingTop: 40,
   },
   header: {
     width: "100%",
-    height: '15%',
-    justifyContent: 'center',
-    marginBottom: 10,
+    height: "6%",
+    justifyContent: "center",
+    marginBottom: 25,
   },
   headerArrow: {
-    marginLeft: 25,
-    color: "#fff"
+    marginLeft: -8,
+    color: "#fff",
   },
   containerItems: {
+    width: "100%",
     alignItems: "center",
+    height: "80%",
   },
   title: {
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: 25,
     color: "#fff",
     fontSize: 20,
-    fontWeight: "600",
+    fontFamily: "Inter_600SemiBold",
   },
   containerDescription: {
     width: 329,
@@ -35,6 +39,7 @@ export default StyleSheet.create({
     color: "#B3B0B8",
     marginBottom: 20,
     textAlign: "center",
+    fontFamily: "Inter_400Regular",
   },
   form: {
     width: "100%",
@@ -47,6 +52,7 @@ export default StyleSheet.create({
   txtInput: {
     color: "#fff",
     marginBottom: 5,
+    fontFamily: "Inter_500Medium",
   },
   input: {
     height: 48,
@@ -55,6 +61,7 @@ export default StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 10,
     borderRadius: 4,
+    fontFamily: "Inter_400Regular",
   },
   passwordContainer: {
     flexDirection: "row",
@@ -78,7 +85,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    width: 326,
+    width: "100%",
     height: 48,
     backgroundColor: "#E5383B",
     alignItems: "center",
@@ -88,21 +95,24 @@ export default StyleSheet.create({
   txtButton: {
     color: "#fff",
     fontSize: 16,
+    fontFamily: "Inter_400Regular",
   },
   txtAccount: {
     color: "#B3B0B8",
     textAlign: "right",
     marginBottom: 20,
+    fontFamily: "Inter_400Regular",
   },
   txt: {
     color: "#B3B0B8",
     marginBottom: 30,
+    fontFamily: "Inter_400Regular",
   },
   socialbutton: {
     width: "100%",
     height: 60,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems: "center",
   },
   google: {
@@ -112,6 +122,7 @@ export default StyleSheet.create({
     borderRadius: 4,
     alignItems: "center",
     justifyContent: "center",
+    marginRight: 15,
   },
   apple: {
     width: 160,
@@ -120,17 +131,18 @@ export default StyleSheet.create({
     borderRadius: 4,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 17, 
   },
   socialTxt: {
     color: "#fff",
+    fontFamily: "Inter_400Regular",
   },
   txtN: {
     color: "#B3B0B8",
     marginTop: 5,
+    fontFamily: "Inter_400Regular",
   },
-  txtBold:{
+  txtBold: {
     color: "#fff",
-    fontWeight: "600"
-  }
+    fontFamily: "Inter_600SemiBold",
+  },
 });

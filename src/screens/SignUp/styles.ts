@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import styles from "../Home/styles";
 
 export default StyleSheet.create({
   containerUp: {
@@ -6,35 +7,41 @@ export default StyleSheet.create({
     backgroundColor: "#101114",
     alignItems: "center",
     flexDirection: "column",
+    paddingHorizontal: 24,
+    paddingTop: 40,
   },
   header: {
     width: "100%",
-    height: 110,
-    justifyContent: 'center',
+    height: "6%",
+    justifyContent: "center",
     marginBottom: 10,
   },
   headerArrow: {
-    marginLeft: 25,
-    color: "#fff"
+    marginLeft: -8,
+    color: "#fff",
   },
   containerItems: {
+    width: "100%",
     alignItems: "center",
+    height: "80%",
   },
   title: {
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: 25,
     color: "#fff",
     fontSize: 20,
-    fontWeight: "600",
+    fontFamily: "Inter_600SemiBold",
   },
   containerDescription: {
     width: 329,
     height: 60,
+    marginBottom: 15,
   },
   description: {
     color: "#B3B0B8",
     marginBottom: 20,
     textAlign: "center",
+    fontFamily: "Inter_400Regular",
   },
   form: {
     width: "100%",
@@ -47,6 +54,7 @@ export default StyleSheet.create({
   txtInput: {
     color: "#fff",
     marginBottom: 5,
+    fontFamily: "Inter_500Medium",
   },
   input: {
     height: 48,
@@ -55,6 +63,7 @@ export default StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 10,
     borderRadius: 4,
+    fontFamily: "Inter_400Regular",
   },
   passwordContainer: {
     flexDirection: "row",
@@ -75,10 +84,11 @@ export default StyleSheet.create({
   containerButton: {
     width: "100%",
     height: 49,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 25,
   },
   button: {
-    width: 326,
+    width: "100%",
     height: 48,
     backgroundColor: "#E5383B",
     alignItems: "center",
@@ -88,49 +98,28 @@ export default StyleSheet.create({
   txtButton: {
     color: "#fff",
     fontSize: 16,
-  },
-  txtAccount: {
-    color: "#B3B0B8",
-    textAlign: "right",
-    marginBottom: 20,
-  },
-  txt: {
-    color: "#B3B0B8",
-    marginBottom: 30,
-  },
-  socialbutton: {
-    width: "100%",
-    height: 60,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-  },
-  google: {
-    width: 160,
-    height: 48,
-    backgroundColor: "#1E1F24",
-    borderRadius: 4,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  apple: {
-    width: 160,
-    height: 48,
-    backgroundColor: "#1E1F24",
-    borderRadius: 4,
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: 17, 
-  },
-  socialTxt: {
-    color: "#fff",
+    fontFamily: "Inter_500Medium",
   },
   txtN: {
     color: "#B3B0B8",
     marginTop: 5,
+    fontFamily: "Inter_400Regular",
   },
-  txtBold:{
+  color: {
+    color: "#E5383B",
+    fontFamily: "Inter_500Medium",
+  },
+  txtBold: {
     color: "#fff",
-    fontWeight: "600"
-  }
+    fontFamily: "Inter_600SemiBold",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  label: {
+    marginLeft: 8,
+    fontFamily: "Inter_400Regular",
+    color: "#B3B0B8",
+  },
 });

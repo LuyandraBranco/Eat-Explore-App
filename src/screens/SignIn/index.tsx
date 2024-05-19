@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   SafeAreaView,
+  KeyboardAvoidingView,
 } from "react-native";
 import styles from "./styles";
 import { useState, useEffect } from "react";
@@ -49,30 +50,30 @@ export function SignIn({ navigation }: any) {
     <SafeAreaView style={styles.containerLogin}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
+          <CaretLeft size={24} color="#fff" style={styles.headerArrow} />
         </TouchableOpacity>
       </View>
-
       <View style={styles.containerItems}>
         <Text style={styles.title}>Eat Explore</Text>
         <View style={styles.containerDescription}>
           <Text style={styles.description}>
-            Saboreie a Experiência: Exploradores de Sabores. Saboreie.
-            Compartilhe.
+            Descubra e Deguste: Uma Jornada de Sabores. Saboreie. Compartilhe.
           </Text>
         </View>
 
         <View style={styles.form}>
           <View style={styles.formGroup}>
             <Text style={styles.txtInput}>E-mail</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-            />
+            <KeyboardAvoidingView>
+              <TextInput
+                style={styles.input}
+                placeholder="Email"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+              />
+            </KeyboardAvoidingView>
           </View>
           <Text style={styles.txtInput}>Senha</Text>
           <View style={styles.passwordContainer}>

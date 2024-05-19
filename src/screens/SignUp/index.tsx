@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -5,21 +6,23 @@ import {
   TouchableOpacity,
   TextInput,
   SafeAreaView,
+  BackHandler,
+  ToastAndroid,
 } from "react-native";
+import Checkbox from "expo-checkbox";
 import styles from "./styles";
-import { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { CaretLeft, TextT, Vault, X } from "phosphor-react-native";
+import { CaretLeft } from "phosphor-react-native";
 import axios from "axios";
 import NetInfo from "@react-native-community/netinfo";
 
 export function SignUp({ navigation }: any) {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstName, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isConnected, setIsConnected] = useState(true);
+  const [isTermsAccepted, setIsTermsAccepted] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -30,17 +33,25 @@ export function SignUp({ navigation }: any) {
       setIsConnected(state.isConnected);
     });
 
-    // Cleanup
     return () => unsubscribe();
   }, []);
+
   const handleSignUp = async () => {
     if (!isConnected) {
       console.error("Sem conexão com a internet");
       return;
     }
 
+    if (!isTermsAccepted) {
+      console.error("Você deve aceitar os termos e condições");
+      ToastAndroid.show(
+        "Você deve aceitar os termos e condições",
+        ToastAndroid.SHORT
+      );
+      return;
+    }
+
     try {
-      // Fazer a requisição para cadastrar o usuário
       const response = await axios.post("http://192.168.1.134:3000/user", {
         username: `${firstName} ${lastName}`,
         password,
@@ -55,29 +66,17 @@ export function SignUp({ navigation }: any) {
         lastName,
       });
       console.log("Cadastro realizado com sucesso:", response.data);
-
-      // // Se o cadastro for bem-sucedido, fazer o login
-      // const loginResponse = await axios.post(
-      //   "http://192.168.1.134/user/login",
-      //   {
-      //     email: email,
-      //     password,
-      //   }
-      // );
-      // console.log("Login realizado com sucesso:", loginResponse.data);
-
-      // Armazenar o token de acesso ou usuário no estado global ou AsyncStorage
-      // Redirecionar para a próxima tela
       navigation.navigate("SignIn");
     } catch (error) {
       console.error("Erro durante o cadastro ou login:", error);
     }
   };
+
   return (
     <SafeAreaView style={styles.containerUp}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <CaretLeft size={32} color="#fff" style={styles.headerArrow} />
+          <CaretLeft size={24} color="#fff" style={styles.headerArrow} />
         </TouchableOpacity>
       </View>
 
@@ -85,8 +84,7 @@ export function SignUp({ navigation }: any) {
         <Text style={styles.title}>Eat Explore</Text>
         <View style={styles.containerDescription}>
           <Text style={styles.description}>
-            Saboreie a Experiência: Exploradores de Sabores. Saboreie.
-            Compartilhe.
+            Descubra e Deguste: Uma Jornada de Sabores. Saboreie. Compartilhe.
           </Text>
         </View>
 
@@ -98,7 +96,7 @@ export function SignUp({ navigation }: any) {
               placeholder="Nome"
               autoCapitalize="none"
               value={firstName}
-              onChangeText={(text) => setName(text)}
+              onChangeText={(text) => setFirstName(text)}
             />
           </View>
           <View style={styles.formGroup}>
@@ -140,7 +138,17 @@ export function SignUp({ navigation }: any) {
               <Text>{showPassword ? "👁️" : "👁️‍🗨️"}</Text>
             </TouchableOpacity>
           </View>
-
+          <View style={styles.checkboxContainer}>
+            <Checkbox
+              value={isTermsAccepted}
+              onValueChange={setIsTermsAccepted}
+              color={isTermsAccepted ? "#E5383B" : undefined}
+            />
+            <Text style={styles.label}>Aceito os</Text>
+            <TouchableOpacity>
+              <Text style={styles.color}> {""}Termos e Condições</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.containerButton}>
             <TouchableOpacity style={styles.button} onPress={handleSignUp}>
               <Text style={styles.txtButton}>Criar conta</Text>
@@ -149,7 +157,7 @@ export function SignUp({ navigation }: any) {
         </View>
       </View>
       <Text style={styles.txtN} onPress={() => navigation.navigate("SignIn")}>
-        Já possuí uma conta? <Text style={styles.txtBold}> Faça Login</Text>
+        Já possuí uma conta? <Text style={styles.txtBold}>Faça Login</Text>
       </Text>
     </SafeAreaView>
   );
