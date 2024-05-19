@@ -19,11 +19,13 @@ export default StyleSheet.create({
   headerTxt: {
     color: "#000",
     fontSize: 18,
+    fontFamily: 'Inter_500Medium'
   },
   txt: {
     color: "#F55F5F",
     fontSize: 18,
-    fontWeight: "600"
+    fontWeight: "600",
+    fontFamily: 'Inter_400Regular'
   },
   headerDescription: {
     color: "#000",
