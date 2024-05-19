@@ -17,12 +17,13 @@ export function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Tabs" component={TabsRouter} />
+       
         <Stack.Screen name="SplachScreen" component={SplachScreen} />
         <Stack.Screen name="AuthScreen" component={AuthScreen} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Tabs" component={TabsRouter} />
         <Stack.Screen name="RestaurantAbout" component={RestaurantAbout} />
         <Stack.Screen name="RestaurantMenu" component={RestaurantMenu} />
         <Stack.Screen name="Profile" component={Profile} />

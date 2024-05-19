@@ -25,11 +25,10 @@ export function Onboarding({ navigation }: any) {
   };
 
   return (
-    <SafeAreaView style={[styles.containerOnboarding]}>
-      <StatusBar style="light" backgroundColor="#1E1E1E" />
+    <SafeAreaView style={styles.containerOnboarding}>
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack}>
-          <CaretLeft size={28} color="#fff" style={styles.headerArrow} />
+          <CaretLeft size={28} color="#fff" style={styles.txt} />
         </TouchableOpacity>
         <Text
           style={styles.headerTxt}
@@ -51,13 +50,11 @@ export function Onboarding({ navigation }: any) {
             {onboardingData[currentScreen].title}
           </Text>
         </View>
-
         <View style={styles.containerDescription}>
           <Text style={styles.description}>
             {onboardingData[currentScreen].description}
           </Text>
         </View>
-
         <TouchableOpacity style={[styles.button]} onPress={handleNext}>
           <Text style={styles.txtButton}>Avançar</Text>
         </TouchableOpacity>

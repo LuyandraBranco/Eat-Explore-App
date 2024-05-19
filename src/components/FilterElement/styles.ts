@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   filterTitle: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: "Inter_500Medium",
   },
   filterOptionsContainer: {
     marginTop: 5,

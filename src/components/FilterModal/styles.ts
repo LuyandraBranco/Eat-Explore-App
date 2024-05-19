@@ -29,12 +29,12 @@ export default StyleSheet.create({
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: 'Inter_600SemiBold',
     marginBottom: 10,
   },
   filterTitle: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: 'Inter_500Medium',
     marginTop: 10,
   },
   filterOption: {
@@ -56,5 +56,6 @@ export default StyleSheet.create({
   txtButton: {
     color: "#fff",
     fontSize: 16,
+    fontFamily: 'Inter_400Regular',
   },
 });
