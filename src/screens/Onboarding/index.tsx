@@ -1,19 +1,20 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import styles from "./styles";
-import { useState } from "react";
 import { CaretLeft } from "phosphor-react-native";
 import { StatusBar } from "expo-status-bar";
 import onboardingData from "../../data/onboardingData";
-import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Onboarding({ navigation }: any) {
   const [currentScreen, setCurrentScreen] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentScreen < onboardingData.length - 1) {
       setCurrentScreen((prevScreen) => prevScreen + 1);
     } else {
       // Navegar para a próxima tela após a última etapa
+      await AsyncStorage.setItem("firstLaunch", "false");
       navigation.navigate("AuthScreen");
     }
   };
@@ -32,7 +33,10 @@ export function Onboarding({ navigation }: any) {
         </TouchableOpacity>
         <Text
           style={styles.headerTxt}
-          onPress={() => navigation.navigate("AuthScreen")}
+          onPress={async () => {
+            await AsyncStorage.setItem("firstLaunch", "false");
+            navigation.navigate("AuthScreen");
+          }}
         >
           Skip
         </Text>
