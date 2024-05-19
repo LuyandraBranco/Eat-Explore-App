@@ -10,6 +10,7 @@ import { HourFilter } from "../HourFilter";
 import { ReservationsFilter } from "../ReservationsFilter";
 import { PromotionFilter } from "../PromotionsFilter";
 import { EnvironmentFilter } from "../EnvironmentFilter";
+import { LocationFilter } from "../LocationFilter";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
@@ -47,10 +48,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               expanded={expandedFilter === "Localização"}
               onPress={() => toggleFilter("Localização")}
             >
-              <Text>Italiana</Text>
-              <Text>Japonesa</Text>
-              <Text>Mexicana</Text>
-              <Text>Vegetariana</Text>
+             <LocationFilter/>
             </FilterElement>
             <FilterElement
               title="Tipo Culinária"
