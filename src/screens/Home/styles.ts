@@ -29,6 +29,7 @@ export default StyleSheet.create({
   },
   headerDescription: {
     color: "#000",
+    fontFamily: 'Inter_400Regular'
   },
   containerImage: {
     width: 43,

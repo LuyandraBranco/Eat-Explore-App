@@ -11,13 +11,14 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 15,
+    fontFamily: "Inter_600SemiBold",
   },
   txt: {
     marginTop: 7,
     marginBottom: 10,
     color: "#000",
     fontSize: 16,
-    fontWeight: "600"
+    fontWeight: "600",
   },
   containerButtons: {
     width: "100%",

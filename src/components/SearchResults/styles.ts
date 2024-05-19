@@ -8,7 +8,8 @@ export default StyleSheet.create({
     justifyContent: "center"
   },
   txt: {
-   textAlign: "center"
+   textAlign: "center",
+   fontFamily: 'Inter_400Regular'
   },
   container: {
     flexDirection: 'row',

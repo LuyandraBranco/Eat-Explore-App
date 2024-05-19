@@ -31,6 +31,7 @@ export default StyleSheet.create({
     borderRadius: 5,
     paddingVertical: 8,
     paddingHorizontal: 40,
+    fontFamily: 'Inter_400Regular'
   },
   cancelButton: {
     position: "absolute",

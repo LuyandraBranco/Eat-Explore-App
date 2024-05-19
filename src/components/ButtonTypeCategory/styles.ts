@@ -17,6 +17,6 @@ export default StyleSheet.create({
   text: {
     color: "#fff",
     fontSize: 14,
-    fontWeight: "500",
+    fontFamily: 'Inter_600SemiBold'
   },
 });

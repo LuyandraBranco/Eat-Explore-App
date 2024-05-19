@@ -9,13 +9,16 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: "600",
+    fontFamily: "Inter_600SemiBold",
+    marginBottom:   10
+  },
+  txtItem: {
+    fontFamily: 'Inter_400Regular'
   },
   containerItems: {
     width: "100%",
     height: 120,
     marginTop: 5,
-    paddingHorizontal: 5
   },
   itemCategory: {
     flexDirection: "column",

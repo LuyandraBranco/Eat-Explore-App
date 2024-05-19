@@ -21,6 +21,6 @@ export default StyleSheet.create({
   title: {
     color: "#fff",
     fontSize: 16,
-    fontWeight: "800",
+    fontFamily: 'Inter_600SemiBold'
   },
 });

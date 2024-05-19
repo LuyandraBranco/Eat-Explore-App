@@ -9,7 +9,10 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: "600",
+    fontFamily: "Inter_600SemiBold",
+  },
+  txtItem: {
+    fontFamily: 'Inter_400Regular'
   },
   containerItems: {
     width: "100%",

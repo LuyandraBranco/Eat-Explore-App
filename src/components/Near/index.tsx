@@ -21,7 +21,7 @@ export function Near({ navigation }: any) {
       }}
     >
       <Image source={item.image} style={styles.image}/>
-      <Text>{item.title}</Text>
+      <Text style={styles.txtItem}>{item.title}</Text>
     </TouchableOpacity>
   );
   return (
