@@ -26,11 +26,17 @@ export function AuthScreen({ navigation }: any) {
           Entre e explore gastronomias encontradas em Angola
         </Text>
       </View>
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('SignUp')}>
-        <Text style={styles.txtButton}>Cadastro</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonLogin} onPress={()=>navigation.navigate('SignIn')}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("SignIn")}
+      >
         <Text style={styles.txtButton}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonLogin}
+        onPress={() => navigation.navigate("Tabs", { screen: "Home" })}
+      >
+        <Text style={styles.txtButton}>Entrar como convidado</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

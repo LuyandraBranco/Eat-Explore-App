@@ -29,7 +29,7 @@ export function Home({ navigation }: any) {
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTxt}>
-            Olá, <Text style={styles.txt}>{name}</Text>
+            Olá <Text style={styles.txt}>{name}</Text>
           </Text>
           <Text style={styles.headerDescription}>
             O que está procurando hoje?
