@@ -14,6 +14,7 @@ import styles from "./styles";
 import { CaretLeft } from "phosphor-react-native";
 import axios from "axios";
 import NetInfo from "@react-native-community/netinfo";
+import { TermModal } from "../../components/TermModal";
 
 export function SignUp({ navigation }: any) {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,11 @@ export function SignUp({ navigation }: any) {
   const [password, setPassword] = useState("");
   const [isConnected, setIsConnected] = useState(true);
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+  const [isTermVisible, setTermVisible] = useState(false);
+
+  const toggleTermModal = () => {
+    setTermVisible(!isTermVisible);
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -145,7 +151,7 @@ export function SignUp({ navigation }: any) {
               color={isTermsAccepted ? "#E5383B" : undefined}
             />
             <Text style={styles.label}>Aceito os</Text>
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={toggleTermModal}>
               <Text style={styles.color}> {""}Termos e Condições</Text>
             </TouchableOpacity>
           </View>
@@ -159,6 +165,7 @@ export function SignUp({ navigation }: any) {
       <Text style={styles.txtN} onPress={() => navigation.navigate("SignIn")}>
         Já possuí uma conta? <Text style={styles.txtBold}>Faça Login</Text>
       </Text>
+      <TermModal visible={isTermVisible} onClose={toggleTermModal} />
     </SafeAreaView>
   );
 }
