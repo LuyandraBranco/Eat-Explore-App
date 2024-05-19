@@ -1,13 +1,15 @@
 import React from "react";
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, Image } from "react-native";
 import styles from "./styles";
+import { StarRating } from "../StarRating";
 
 interface ItemSearchProps {
   name: string;
-  img?: string; // tornando a imagem opcional
+  img?: string;
   location: string;
   price?: number;
   navigation: any;
+  rating: number;
 }
 
 export function ItemSearch({
@@ -15,18 +17,18 @@ export function ItemSearch({
   img,
   location,
   price,
-  navigation,
+  rating,
 }: ItemSearchProps) {
   return (
-    <ImageBackground
-      source={img ? { uri: img } : require("../../assets/images/logo.jpeg")}
-      style={styles.containerItem}
-    >
-      <View style={styles.item}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.location}>{price}</Text>
-        <Text style={styles.location}>{location}</Text>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: img }} style={styles.image} resizeMode="cover" />
       </View>
-    </ImageBackground>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>{name}</Text>
+        <StarRating rating={rating} />
+        <Text style={styles.subtitle}>{location}</Text>
+      </View>
+    </View>
   );
 }

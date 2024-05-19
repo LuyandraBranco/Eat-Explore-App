@@ -1,11 +1,17 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 import styles from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft } from "phosphor-react-native";
 
 export function Food({ navigation }: any) {
   return (
-    <View style={styles.containerFood}>
+    <SafeAreaView style={styles.containerFood}>
       <StatusBar style="light" backgroundColor="#1E1E1E" />
       <View style={styles.containerFoodItem}>
         <View style={styles.header}>
@@ -31,6 +37,6 @@ export function Food({ navigation }: any) {
           "molho de mufete".
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

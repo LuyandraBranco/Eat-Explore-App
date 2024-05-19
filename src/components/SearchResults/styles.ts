@@ -2,10 +2,12 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   containerItem:{
-    width: "80%",
-    height: "70%",
+    width: "100%",
+    height: "88%",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingHorizontal: 9,
+    paddingTop: 10
   },
   txt: {
    textAlign: "center",

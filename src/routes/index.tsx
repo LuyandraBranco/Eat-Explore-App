@@ -17,7 +17,6 @@ export function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-       
         <Stack.Screen name="SplachScreen" component={SplachScreen} />
         <Stack.Screen name="AuthScreen" component={AuthScreen} />
         <Stack.Screen name="Onboarding" component={Onboarding} />

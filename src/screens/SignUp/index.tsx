@@ -151,7 +151,7 @@ export function SignUp({ navigation }: any) {
               color={isTermsAccepted ? "#E5383B" : undefined}
             />
             <Text style={styles.label}>Aceito os</Text>
-            <TouchableOpacity  onPress={toggleTermModal}>
+            <TouchableOpacity onPress={toggleTermModal}>
               <Text style={styles.color}> {""}Termos e Condições</Text>
             </TouchableOpacity>
           </View>
