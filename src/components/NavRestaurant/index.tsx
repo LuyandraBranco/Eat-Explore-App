@@ -39,7 +39,7 @@ export function NavRestaurant({ navigation, restaurantData, activeItem }: any) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Search", { restaurantData })}
+        onPress={() => navigation.navigate("RestaurantPhotos", { restaurantData })}
       >
         <Text
           style={[styles.itemNav, activeItem === "photos" && styles.activeItem]}
