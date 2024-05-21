@@ -53,6 +53,32 @@ export default StyleSheet.create({
     fontWeight: "500",
     marginLeft: 30,
   },
+  geralReviewContainer: {
+    width: "100%",
+    height: "23%",
+    flexDirection: "column",
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  titleReview: {
+    fontSize: 16,
+    fontFamily: "Inter_500Medium",
+    marginBottom: 15,
+  },
+  review: {
+    textAlign: "center",
+    fontSize: 50,
+    fontFamily: "Inter_500Medium",
+  },
+  ratingContainer: {
+    alignItems: "center",
+  },
+  numberReviews: {
+    marginTop: 5,
+    fontSize: 15,
+    fontFamily: "Inter_400Regular",
+  },
   containerItems: {
     flex: 1,
     flexWrap: "wrap",

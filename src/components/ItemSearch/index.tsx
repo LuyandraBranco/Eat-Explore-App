@@ -26,7 +26,7 @@ export function ItemSearch({
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{name}</Text>
-        <StarRating rating={rating} />
+        <StarRating rating={rating} size={18} />
         <Text style={styles.subtitle}>{location}</Text>
       </View>
     </View>
