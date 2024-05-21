@@ -12,6 +12,7 @@ import { Onboarding } from "../screens/Onboarding";
 import { AuthScreen } from "../screens/AuthScreen";
 import { SignIn } from "../screens/SignIn";
 import { RestaurantPhotos } from "../screens/RestaurantPhotos";
+import { RestaurantReview } from "../screens/RestaurantReview";
 
 export function Routes() {
   const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ export function Routes() {
         <Stack.Screen name="RestaurantAbout" component={RestaurantAbout} />
         <Stack.Screen name="RestaurantMenu" component={RestaurantMenu} />
         <Stack.Screen name="RestaurantPhotos" component={RestaurantPhotos} />
+        <Stack.Screen name="RestaurantReview" component={RestaurantReview} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Food" component={Food} />
       </Stack.Navigator>
