@@ -13,4 +13,7 @@ export default StyleSheet.create({
   itemNav: {
     fontFamily: "Inter_500Medium",
   },
+  activeItem: {
+    color: "#F55F5F",
+  },
 });

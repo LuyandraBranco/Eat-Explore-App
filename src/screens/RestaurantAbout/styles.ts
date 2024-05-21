@@ -22,9 +22,8 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   headerArrow: {
-    marginLeft: -8,
+    marginLeft: -5,
   },
-  headerHeart: {},
   restaurantName: {
     color: "#000",
     fontSize: 18,

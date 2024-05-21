@@ -64,8 +64,8 @@ export function TabsRouter() {
     {
       route: "Pedidos",
       label: "Pedidos",
-      activeIcon: "search",
-      inActiveIcon: "search-outline",
+      activeIcon: "bookmark",
+      inActiveIcon: "bookmark-outline",
       component: Requests,
     },
     {

@@ -69,7 +69,7 @@ export function Home({ navigation }: any) {
             O que está procurando hoje?
           </Text>
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.containerImage}
           onPress={() => navigation.navigate("Profile")}
         >
@@ -78,7 +78,7 @@ export function Home({ navigation }: any) {
             style={styles.image}
             resizeMode="contain"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}

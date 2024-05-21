@@ -9,8 +9,11 @@ import styles from "./styles";
 import { CaretLeft, Heart } from "phosphor-react-native";
 import { NavRestaurant } from "../../components/NavRestaurant";
 import MapView from "react-native-maps";
+import { useState } from "react";
 
 export function RestaurantAbout({ route, navigation }: any) {
+  const [activeItem, setActiveItem] = useState("about");
+
   const { restaurantData } = route.params;
   return (
     <SafeAreaView style={styles.containerRestaurantAbout}>
@@ -21,7 +24,7 @@ export function RestaurantAbout({ route, navigation }: any) {
           </TouchableOpacity>
           <Text style={styles.restaurantName}>{restaurantData.name}</Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Heart size={25} color="#F55F5F" style={styles.headerHeart} />
+            <Heart size={25} color="#F55F5F" />
           </TouchableOpacity>
         </View>
         <View style={styles.containerImage}>
@@ -32,7 +35,11 @@ export function RestaurantAbout({ route, navigation }: any) {
             />
           </View>
         </View>
-        <NavRestaurant navigation={navigation} />
+        <NavRestaurant
+          navigation={navigation}
+          restaurantData={restaurantData}
+          activeItem={activeItem}
+        />
       </View>
       <View style={styles.containerText}>
         <Text style={styles.title}>Horário de Atendimento</Text>

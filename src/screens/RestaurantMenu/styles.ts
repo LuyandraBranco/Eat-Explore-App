@@ -6,51 +6,45 @@ export default StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: "#fff",
+    paddingHorizontal: 24,
+    paddingTop: 1,
   },
   containerRestaurantItem: {
     width: "100%",
-    height: "40%",
+    height: "35%",
   },
   header: {
     width: "100%",
-    height: 80,
+    height: "18%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 25,
     marginBottom: 10,
   },
   headerArrow: {
-    marginLeft: 15,
-  },
-  headerHeart: {
-    marginRight: 15,
+    marginLeft: -5,
   },
   restaurantName: {
     color: "#000",
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
-    fontWeight: "400",
+    fontFamily: "Inter_500Medium",
   },
   containerImage: {
     width: "100%",
-    height: "50%",
+    height: "60%",
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
-    width: 318,
-    height: 141,
+    width: "100%",
+    height: 150,
     borderRadius: 6,
   },
   img: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
-  },
-  containerItems: {
-    width: "100%",
-    height: "40%",
+    objectFit: "cover",
   },
   title: {
     color: "#000",
@@ -59,13 +53,7 @@ export default StyleSheet.create({
     fontWeight: "500",
     marginLeft: 30,
   },
-  restaurantDescription: {
-    color: "#000",
-    textAlign: "justify",
-    fontSize: 15,
-    marginTop: 15,
-    marginLeft: 30,
-    marginRight: 30,
-    marginBottom: 30,
+  containerItems: {
+    flex: 1,
   },
 });
