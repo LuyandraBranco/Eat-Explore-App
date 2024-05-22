@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    paddingTop: 25,
-    paddingBottom: 25,
+    //
   },
   instructions: {
     fontSize: 18,

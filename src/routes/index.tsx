@@ -13,6 +13,7 @@ import { AuthScreen } from "../screens/AuthScreen";
 import { SignIn } from "../screens/SignIn";
 import { RestaurantPhotos } from "../screens/RestaurantPhotos";
 import { RestaurantReview } from "../screens/RestaurantReview";
+import { Review } from "../screens/Review";
 
 export function Routes() {
   const Stack = createStackNavigator();
@@ -31,6 +32,7 @@ export function Routes() {
         <Stack.Screen name="RestaurantReview" component={RestaurantReview} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Food" component={Food} />
+        <Stack.Screen name="Review" component={Review} />
       </Stack.Navigator>
     </NavigationContainer>
   );
