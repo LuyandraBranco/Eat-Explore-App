@@ -6,6 +6,8 @@ import { NavRestaurant } from "../../components/NavRestaurant";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 import { StarRating } from "../../components/StarRating";
+import { StarReviewsFilter } from "../../components/StarReviewsFilter";
+import { ItemUserReview } from "../../components/ItemUserReview";
 
 export function RestaurantReview({ route, navigation }: any) {
   const { restaurantData } = route.params;
@@ -45,10 +47,31 @@ export function RestaurantReview({ route, navigation }: any) {
           <Text style={styles.numberReviews}>(100)</Text>
         </View>
       </View>
+      <View style={styles.classifyContainer}>
+        <Text style={styles.titleReview}>Classifique a sua experiência</Text>
+        <Text style={styles.descriptionClassify}>
+          Partilhe a sua experiência e ajude outras pessoas
+        </Text>
+        <View style={styles.classify}>
+          <View style={styles.imgContainer}></View>
+          <TouchableOpacity>
+            <StarReviewsFilter />
+          </TouchableOpacity>
+        </View>
+      </View>
       <ScrollView
         style={styles.containerItems}
         showsVerticalScrollIndicator={false}
-      ></ScrollView>
+      >
+        <ItemUserReview
+          username={"Luyandra Branco"}
+          imgUrl={"Oi"}
+          rating={4}
+          date={"Dezembro 01, 2023"}
+          review="Espaço bastante agradável, adorei bastante a estadia foi bastante
+          confortável"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 }

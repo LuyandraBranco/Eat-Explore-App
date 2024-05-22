@@ -29,6 +29,7 @@ export default StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     fontFamily: "Inter_500Medium",
+    textTransform: "uppercase"
   },
   containerImage: {
     width: "100%",
@@ -79,8 +80,33 @@ export default StyleSheet.create({
     fontSize: 15,
     fontFamily: "Inter_400Regular",
   },
+  classifyContainer: {
+    width: "100%",
+    height: "17.5%",
+    flexDirection: "column",
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  descriptionClassify: {
+    fontFamily: "Inter_400Regular",
+  },
+  classify: {
+    width: "100%",
+    height: "auto",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  imgContainer: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#ddd",
+    borderRadius: 50,
+    marginRight: 10
+  },
   containerItems: {
     flex: 1,
+    width: "100%",
     flexWrap: "wrap",
   },
 });

@@ -29,6 +29,7 @@ export default StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     fontFamily: "Inter_500Medium",
+    textTransform: "uppercase"
   },
   containerImage: {
     width: "100%",
