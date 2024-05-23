@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from "./styles";
-import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 
 export function Requests({ navigation }: any) {
@@ -14,7 +13,7 @@ export function Requests({ navigation }: any) {
     <SafeAreaView style={styles.requestContainer}>
       <StatusBar style="light" backgroundColor="#101114" />
       {/* <View style={styles.header}>
-        <Text style={styles.headerName}>Carrinho</Text>
+        <Text style={styles.headerName}>Histórico</Text>
       </View> */}
       <View style={styles.requestImage}>
         <Image

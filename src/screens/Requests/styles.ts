@@ -19,7 +19,6 @@ export default StyleSheet.create({
     justifyContent: "center",
     marginBottom: 10,
     position: "absolute",
-    backgroundColor: "#f5f5f5",
     top: 38,
   },
   headerName: {
