@@ -25,14 +25,20 @@ export function Home({ navigation }: any) {
     const retrieveUserData = async () => {
       try {
         const username = await AsyncStorage.getItem("username");
-        setName(username);
+        if (username !== null) {
+          // O username foi recuperado com sucesso
+          setName(username);
+        } else {
+          console.log("Nenhum username encontrado no AsyncStorage");
+        }
       } catch (error) {
         console.error("Erro ao recuperar dados do AsyncStorage:", error);
       }
     };
-
+  
     retrieveUserData();
   }, []);
+  
 
   const handleBackPress = useCallback(() => {
     if (backPressedOnce) {

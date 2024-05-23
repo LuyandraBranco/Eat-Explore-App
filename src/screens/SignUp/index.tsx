@@ -81,10 +81,18 @@ export function SignUp({ navigation }: any) {
           }
         );
         console.log("Login realizado com sucesso:", loginResponse.data);
+        await AsyncStorage.setItem("userId", loginResponse.data.user.userId);
         await AsyncStorage.setItem(
-          "user",
-          JSON.stringify(loginResponse.data.user)
+          "username",
+          loginResponse.data.user.username
         );
+        await AsyncStorage.setItem("email", loginResponse.data.user.email);
+        await AsyncStorage.setItem(
+          "dataCadastro",
+          loginResponse.data.user.dataCadastro
+        );
+        await AsyncStorage.setItem("photo", loginResponse.data.user.photo);
+        await AsyncStorage.setItem("capa", loginResponse.data.user.capa);
         await AsyncStorage.setItem(
           "accessToken",
           loginResponse.data.accessToken
