@@ -25,7 +25,7 @@ export function SignIn({ navigation }: any) {
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.post(
+      const loginResponse = await axios.post(
         "https://api-eatexplore.onrender.com/user/login",
         {
           username,
@@ -33,15 +33,15 @@ export function SignIn({ navigation }: any) {
         }
       );
 
-      if (response.data.accessToken) {
-      
-        await AsyncStorage.setItem("email", response.data.user.email);
-        await AsyncStorage.setItem("username", response.data.user.username);
+      if (loginResponse.data.accessToken) {
         await AsyncStorage.setItem(
-          "userId",
-          response.data.user.userId.toString()
+          "user",
+          JSON.stringify(loginResponse.data.user)
         );
-
+        await AsyncStorage.setItem(
+          "accessToken",
+          loginResponse.data.accessToken
+        );
         navigation.navigate("Tabs", { screen: "Home" });
       } else {
         console.error("Token de acesso não recebido após autenticação");
@@ -61,17 +61,16 @@ export function SignIn({ navigation }: any) {
         <Text style={styles.title}>Eat Explore</Text>
         <View style={styles.containerDescription}>
           <Text style={styles.description}>
-          Descubra e Deguste: Uma Jornada de Sabores. Saboreie. Compartilhe.
+            Descubra e Deguste: Uma Jornada de Sabores. Saboreie. Compartilhe.
           </Text>
         </View>
 
         <View style={styles.form}>
           <View style={styles.formGroup}>
-            <Text style={styles.txtInput}>E-mail</Text>
+            <Text style={styles.txtInput}>Nome do usuário</Text>
             <TextInput
               style={styles.input}
-              placeholder="Email"
-              keyboardType="email-address"
+              placeholder="Nome de Usuário"
               autoCapitalize="none"
               value={username}
               onChangeText={(text) => setUsername(text)}
