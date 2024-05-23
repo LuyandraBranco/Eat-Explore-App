@@ -2,8 +2,19 @@ import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { ItemSearch } from "../../components/ItemSearch";
 import styles from "./styles";
+import { SearchResult } from "../../screens/Search";
 
-export function SearchResults({ searchResults, navigation, isEditing }: any) {
+interface SearchResultsProps {
+  searchResults: SearchResult[];
+  navigation: any;
+  isEditing: boolean;
+}
+
+export function SearchResults({
+  searchResults,
+  navigation,
+  isEditing,
+}: SearchResultsProps) {
   return (
     <View style={styles.containerItem}>
       {!isEditing && searchResults.length === 0 && (
@@ -15,25 +26,22 @@ export function SearchResults({ searchResults, navigation, isEditing }: any) {
         <FlatList
           data={searchResults}
           showsVerticalScrollIndicator={false}
-          keyExtractor={(item: any) => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("RestaurantAbout", {
-                  restaurantData: item,
-                })
-              }
-            >
-              <ItemSearch
-                name={item.name}
-                img={
-                  "https://lh5.googleusercontent.com/p/AF1QipM764RTHzPhbfkC0RF7KvcQtYckebLQYLuS1g69=w260-h175-n-k-no"
+              onPress={() => {
+                if (item.type === "restaurant") {
+                  navigation.navigate("RestaurantDetail", {
+                    restaurantData: item,
+                  });
+                } else if (item.type === "food") {
+                  navigation.navigate("FoodDetail", {
+                    foodData: item,
+                  });
                 }
-                location={item.address}
-                price={item.price}
-                rating={4}
-                navigation={navigation}
-              />
+              }}
+            >
+              <ItemSearch result={item} navigation={navigation} />
             </TouchableOpacity>
           )}
         />

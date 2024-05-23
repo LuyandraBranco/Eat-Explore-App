@@ -1,5 +1,9 @@
 export interface Food {
-    title: string;
-    genre: string;
-    image: string;
-  }
+  data: Date;
+  descr: string;
+  id: number;
+  idRestaurant: number;
+  name: string;
+  photo: string;
+  preco: string;
+}

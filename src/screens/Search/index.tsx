@@ -1,23 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { KeyboardAvoidingView, Platform, View } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import axios from "axios";
 import { SearchInput } from "../../components/SearchInput";
 import styles from "./styles";
 import { FilterModal } from "../../components/FilterModal";
 import { SearchResults } from "../../components/SearchResults";
 
+type RestaurantResult = {
+  id: number;
+  type: "restaurant";
+  email: string;
+  password: string;
+  name: string;
+  address: string;
+  rating: number;
+  horaAbertura: string;
+  horaFechamento: string;
+  maps: string;
+  photo: string;
+  bairroId: number;
+  nif: string;
+  phone1: number;
+  phone2?: number | null;
+};
+
+type FoodResult = {
+  id: number;
+  type: "food";
+  name: string;
+  photo: string;
+  descr: string;
+  preco: number;
+  idRestaurante: number;
+  data: string;
+};
+
+export type SearchResult = RestaurantResult | FoodResult;
+
 export function Search({ navigation }: any) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isEditing, setEditing] = useState(false);
-  const [isFilterVisible, setFilterVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isEditing, setEditing] = useState<boolean>(false);
+  const [isFilterVisible, setFilterVisible] = useState<boolean>(false);
 
   const toggleFilterModal = () => {
     setFilterVisible(!isFilterVisible);
   };
 
   const applyFilters = (filters: any) => {
-    // Lógica para aplicar os filtros
     console.log("Filtros aplicados:", filters);
   };
 
@@ -26,14 +56,34 @@ export function Search({ navigation }: any) {
     setSearchTerm("");
   };
 
-  const searchRestaurants = async (partialName: string) => {
+  const search = async (partialName: string) => {
     try {
       console.log("Searching for:", partialName);
-      const response = await axios.get(
-        `http://192.168.1.134:3000/restaurante/search/${partialName}`
+      const [restaurantsResponse, foodsResponse] = await Promise.all([
+        axios.get<Omit<RestaurantResult, "type">[]>(
+          `https://api-eatexplore.onrender.com/restaurante/search/${partialName}`
+        ),
+        axios.get<Omit<FoodResult, "type">[]>(
+          `https://api-eatexplore.onrender.com/cardapio/search/${partialName}`
+        ),
+      ]);
+
+      const restaurants: RestaurantResult[] = restaurantsResponse.data.map(
+        (item) => ({
+          ...item,
+          type: "restaurant",
+        })
       );
-      console.log("Search results:", response.data);
-      setSearchResults(response.data);
+
+      const foods: FoodResult[] = foodsResponse.data.map((item) => ({
+        ...item,
+        type: "food",
+      }));
+
+      const combinedResults: SearchResult[] = [...restaurants, ...foods];
+
+      console.log("Search results:", combinedResults);
+      setSearchResults(combinedResults);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -41,7 +91,7 @@ export function Search({ navigation }: any) {
 
   useEffect(() => {
     if (searchTerm.length > 0) {
-      searchRestaurants(searchTerm);
+      search(searchTerm);
     } else {
       setSearchResults([]);
     }

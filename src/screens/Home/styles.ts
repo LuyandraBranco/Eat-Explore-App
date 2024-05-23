@@ -1,11 +1,11 @@
-import {StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   containerHome: {
     flex: 1,
     height: "auto",
     alignItems: "center",
-    flexDirection: 'column',
+    flexDirection: "column",
     paddingHorizontal: 20,
     paddingTop: 10,
   },
@@ -13,28 +13,28 @@ export default StyleSheet.create({
     width: "100%",
     height: 80,
     flexDirection: "row",
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     alignItems: "center",
   },
   headerTxt: {
     color: "#000",
     fontSize: 18,
-    fontFamily: 'Inter_500Medium'
+    fontFamily: "Inter_500Medium",
   },
   txt: {
     color: "#F55F5F",
     fontSize: 18,
     fontWeight: "600",
-    fontFamily: 'Inter_400Regular'
+    fontFamily: "Inter_400Regular",
   },
   headerDescription: {
     color: "#000",
-    fontFamily: 'Inter_400Regular'
+    fontFamily: "Inter_400Regular",
   },
   containerImage: {
     width: 43,
     height: 43,
-    borderRadius: 50
+    borderRadius: 50,
   },
   image: {
     flex: 1,
@@ -47,7 +47,7 @@ export default StyleSheet.create({
     marginTop: 5,
   },
   scrollContainer: {
-    alignItems: 'center',
-    paddingBottom: 20
+    alignItems: "center",
+    paddingBottom: 20,
   },
 });
