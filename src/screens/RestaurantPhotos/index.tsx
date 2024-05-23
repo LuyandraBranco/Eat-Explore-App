@@ -10,7 +10,7 @@ import ImageView from "react-native-image-viewing";
 
 export function RestaurantPhotos({ route, navigation }: any) {
   const { restaurantData } = route.params;
-  const [activeItem, setActiveItem] = useState("photos");
+  const activeItem = "photos";
   const [visible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
 

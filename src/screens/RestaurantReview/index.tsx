@@ -11,7 +11,7 @@ import { ItemUserReview } from "../../components/ItemUserReview";
 
 export function RestaurantReview({ route, navigation }: any) {
   const { restaurantData } = route.params;
-  const [activeItem, setActiveItem] = useState("reviews");
+  const activeItem = "reviews";
 
   return (
     <SafeAreaView style={styles.containerRestaurantMenu}>
@@ -41,9 +41,9 @@ export function RestaurantReview({ route, navigation }: any) {
       </View>
       <View style={styles.geralReviewContainer}>
         <Text style={styles.titleReview}>Classificação Geral</Text>
-        <Text style={styles.review}>5,0</Text>
+        <Text style={styles.review}>{restaurantData.rating}</Text>
         <View style={styles.ratingContainer}>
-          <StarRating rating={5} size={25} />
+          <StarRating rating={restaurantData.rating} size={25} />
           <Text style={styles.numberReviews}>(100)</Text>
         </View>
       </View>

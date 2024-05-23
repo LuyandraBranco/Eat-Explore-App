@@ -11,7 +11,7 @@ import { CardMenuRestaurant } from "../../components/CardMenuRestaurant";
 
 export function RestaurantMenu({ route, navigation }: any) {
   const { restaurantData } = route.params;
-  const [activeItem, setActiveItem] = useState("menu");
+  const activeItem = "menu";
 
   return (
     <SafeAreaView style={styles.containerRestaurantMenu}>
