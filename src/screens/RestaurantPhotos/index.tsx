@@ -1,14 +1,33 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView, Modal } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft, Heart } from "phosphor-react-native";
 import { NavRestaurant } from "../../components/NavRestaurant";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
+import { ItemPhoto } from "../../components/ItemPhoto";
+import ImageView from "react-native-image-viewing";
 
 export function RestaurantPhotos({ route, navigation }: any) {
   const { restaurantData } = route.params;
   const [activeItem, setActiveItem] = useState("photos");
+  const [visible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const images = [
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_Rqw9bSjJhxJr_iZO2963VEgOZ7H0vA4_w&s" },
+  ];
+
+  const openImage = (index: number) => {
+    setSelectedImage(index);
+    setIsVisible(true);
+  };
 
   return (
     <SafeAreaView style={styles.containerRestaurantMenu}>
@@ -39,7 +58,22 @@ export function RestaurantPhotos({ route, navigation }: any) {
       <ScrollView
         style={styles.containerItems}
         showsVerticalScrollIndicator={false}
-      ></ScrollView>
+      >
+        <View style={styles.items}>
+          {images.map((image, index) => (
+            <TouchableOpacity key={index} onPress={() => openImage(index)}>
+              <ItemPhoto url={image.uri} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+
+      <ImageView
+        images={images}
+        imageIndex={selectedImage}
+        visible={visible}
+        onRequestClose={() => setIsVisible(false)}
+      />
     </SafeAreaView>
   );
 }

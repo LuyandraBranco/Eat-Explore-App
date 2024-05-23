@@ -29,7 +29,7 @@ export default StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     fontFamily: "Inter_500Medium",
-    textTransform: "uppercase"
+    textTransform: "uppercase",
   },
   containerImage: {
     width: "100%",
@@ -56,6 +56,14 @@ export default StyleSheet.create({
   },
   containerItems: {
     flex: 1,
+    width: "100%",
+    height: "auto",
+  },
+  items: {
+    width: "100%",
+    height: "auto",
+    flexDirection: "row",
+    justifyContent: "space-between",
     flexWrap: "wrap",
   },
 });
