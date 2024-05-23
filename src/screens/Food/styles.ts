@@ -46,9 +46,10 @@ export default StyleSheet.create({
     borderRadius: 200,
   },
   img: {
-    width: "100%",
-    height: "100%",
-    objectFit: "contain",
+    flex: 1,
+    width: null,
+    height: null,
+    borderRadius: 200,
   },
   priceContainer: {
     width: "100%",
@@ -94,9 +95,9 @@ export default StyleSheet.create({
   restaurantName: {
     color: "#000",
     fontSize: 22,
-    textAlign: "center",
     marginTop: 25,
     fontFamily: "Inter_500Medium",
+    marginLeft: 30,
   },
   foodDescription: {
     color: "#000",
