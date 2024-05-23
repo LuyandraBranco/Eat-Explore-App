@@ -3,7 +3,10 @@ import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import styles from "./styles";
 
-export function StarReviewsFilter() {
+interface StarReviewsFilterProps {
+  onPress: () => void;
+}
+export function StarReviewsFilter({ onPress }: StarReviewsFilterProps) {
   const [rating, setRating] = useState(0);
 
   const handleRating = (rate: any) => {
@@ -27,9 +30,8 @@ export function StarReviewsFilter() {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.stars}>{renderStars()}</View>
-    </View>
+    </TouchableOpacity>
   );
 }
-

@@ -55,12 +55,20 @@ export function RestaurantReview({ route, navigation }: any) {
         <View style={styles.classify}>
           <View style={styles.imgContainer}></View>
           <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Review", {
+                restaurantData: restaurantData,
+              })
+            }
+          >
+            <Text>oi</Text>
+          </TouchableOpacity>
+
+          <StarReviewsFilter
             onPress={() => {
               navigation.navigate("Review");
             }}
-          >
-            <StarReviewsFilter />
-          </TouchableOpacity>
+          />
         </View>
       </View>
       <ScrollView

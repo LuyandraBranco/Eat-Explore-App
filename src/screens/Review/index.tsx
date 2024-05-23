@@ -18,7 +18,7 @@ export function Review({ restaurantData, navigation }: any) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <CaretLeft size={24} color="#000" style={styles.headerArrow} />
         </TouchableOpacity>
-        <Text style={styles.restaurantName}>{restaurantData.name}</Text>
+        {/* <Text style={styles.restaurantName}>aa</Text> */}
         <TouchableOpacity
           onPress={() => navigation.goBack()}
         ></TouchableOpacity>
@@ -31,7 +31,7 @@ export function Review({ restaurantData, navigation }: any) {
         <View style={styles.classify}>
           <View style={styles.imgContainer}></View>
           <TouchableOpacity>
-            <StarReviewsFilter />
+            <StarReviewsFilter onPress={() => {}} />
           </TouchableOpacity>
         </View>
       </View>
@@ -40,9 +40,15 @@ export function Review({ restaurantData, navigation }: any) {
           style={styles.textInput}
           onChangeText={setUserReview}
           value={userReview}
-          placeholder="Escreva a sua opinião"
+          placeholder="Partilhe detalhes de como foi sua experiência"
         />
+        <TouchableOpacity style={styles.add}>
+          <Text style={styles.txtButton}>Publicar</Text>
+        </TouchableOpacity>
       </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.txtButton}>Publicar</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
