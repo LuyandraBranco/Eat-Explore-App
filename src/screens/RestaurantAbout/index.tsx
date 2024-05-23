@@ -8,13 +8,48 @@ import {
 import styles from "./styles";
 import { CaretLeft, Heart } from "phosphor-react-native";
 import { NavRestaurant } from "../../components/NavRestaurant";
-import MapView from "react-native-maps";
-import { useState } from "react";
+import MapView, { Marker } from "react-native-maps";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Restaurant } from "../../@types/Restaurant";
 
 export function RestaurantAbout({ route, navigation }: any) {
   const [activeItem, setActiveItem] = useState("about");
+  const [restaurantData, setRestaurantData] = useState<Restaurant | null>(null);
+  const [latitude, setLatitude] = useState<number | null>(null);
+  const [longitude, setLongitude] = useState<number | null>(null);
 
-  const { restaurantData } = route.params;
+  const { id } = route.params;
+  useEffect(() => {
+    const fetchRestaurantData = async () => {
+      try {
+        const response = await axios.get(
+          `https://api-eatexplore.onrender.com/restaurante/${id}`
+        );
+        const { data } = response;
+        setRestaurantData(data);
+
+        // Extraindo latitude e longitude da URL do Google Maps
+        const [, lat, lon] =
+          data.maps.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || [];
+        setLatitude(parseFloat(lat));
+        setLongitude(parseFloat(lon));
+      } catch (error) {
+        console.error("Error fetching restaurant data:", error);
+      }
+    };
+
+    fetchRestaurantData();
+  }, [id]);
+
+  if (!restaurantData) {
+    return (
+      <SafeAreaView style={styles.containerRestaurantAbout}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.containerRestaurantAbout}>
       <View style={styles.containerRestaurantItem}>
@@ -29,10 +64,7 @@ export function RestaurantAbout({ route, navigation }: any) {
         </View>
         <View style={styles.containerImage}>
           <View style={styles.image}>
-            <Image
-              source={require("../../assets/images/lookal.png")}
-              style={styles.img}
-            />
+            <Image source={{ uri: restaurantData.photo }} style={styles.img} />
           </View>
         </View>
         <NavRestaurant
@@ -57,7 +89,19 @@ export function RestaurantAbout({ route, navigation }: any) {
         </Text>
         <View style={styles.containerMap}>
           <View style={styles.mapContainer}>
-            <MapView style={styles.map} />
+            {latitude !== null && longitude !== null && (
+              <MapView
+                style={styles.map}
+                initialRegion={{
+                  latitude,
+                  longitude,
+                  latitudeDelta: 0.005,
+                  longitudeDelta: 0.005,
+                }}
+              >
+                <Marker coordinate={{ latitude, longitude }} />
+              </MapView>
+            )}
           </View>
         </View>
       </View>
