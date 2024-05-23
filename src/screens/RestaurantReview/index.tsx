@@ -63,7 +63,6 @@ export function RestaurantReview({ route, navigation }: any) {
           >
             <Text>oi</Text>
           </TouchableOpacity>
-
           <StarReviewsFilter
             onPress={() => {
               navigation.navigate("Review");

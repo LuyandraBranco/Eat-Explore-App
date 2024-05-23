@@ -15,7 +15,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function SignIn({ navigation }: any) {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -26,18 +26,22 @@ export function SignIn({ navigation }: any) {
   const handleSignIn = async () => {
     try {
       const response = await axios.post(
-        "http://192.168.1.134:3000/user/login",
+        "https://api-eatexplore.onrender.com/user/login",
         {
-          email,
+          username,
           password,
         }
       );
 
-      console.log(response);
       if (response.data.accessToken) {
+      
         await AsyncStorage.setItem("email", response.data.user.email);
         await AsyncStorage.setItem("username", response.data.user.username);
-        await AsyncStorage.setItem("userId", response.data.user.id.toString());
+        await AsyncStorage.setItem(
+          "userId",
+          response.data.user.userId.toString()
+        );
+
         navigation.navigate("Tabs", { screen: "Home" });
       } else {
         console.error("Token de acesso não recebido após autenticação");
@@ -69,8 +73,8 @@ export function SignIn({ navigation }: any) {
               placeholder="Email"
               keyboardType="email-address"
               autoCapitalize="none"
-              value={email}
-              onChangeText={(text) => setEmail(text)}
+              value={username}
+              onChangeText={(text) => setUsername(text)}
             />
           </View>
           <Text style={styles.txtInput}>Senha</Text>
