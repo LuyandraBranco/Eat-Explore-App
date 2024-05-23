@@ -27,12 +27,10 @@ export function Profile({ navigation }: any) {
   useEffect(() => {
     const retrieveUserData = async () => {
       try {
-        // Recuperar dados do AsyncStorage ao entrar na tela de perfil
         const storedEmail = await AsyncStorage.getItem("email");
         const storedUsername = await AsyncStorage.getItem("username");
         const storedUserId = await AsyncStorage.getItem("userId");
 
-        // Armazenar os valores nos estados locais
         setEmail(storedEmail);
         setUsername(storedUsername);
         setUserId(storedUserId);
@@ -46,13 +44,11 @@ export function Profile({ navigation }: any) {
 
   const handleLogout = async () => {
     try {
-      // Limpar os dados do AsyncStorage e dos estados locais
       await AsyncStorage.removeItem("email");
       await AsyncStorage.removeItem("username");
       await AsyncStorage.removeItem("userId");
 
-      // Navegar para a tela de login
-      navigation.navigate("SignIn");
+      navigation.navigate("AuthScreen");
     } catch (error) {
       console.error("Erro ao limpar dados do AsyncStorage:", error);
     }

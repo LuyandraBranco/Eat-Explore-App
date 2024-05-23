@@ -81,7 +81,10 @@ export function SignUp({ navigation }: any) {
           }
         );
         console.log("Login realizado com sucesso:", loginResponse.data);
-        await AsyncStorage.setItem("userId", loginResponse.data.user.userId);
+        await AsyncStorage.setItem(
+          "userId",
+          JSON.stringify(loginResponse.data.user.userId)
+        );
         await AsyncStorage.setItem(
           "username",
           loginResponse.data.user.username

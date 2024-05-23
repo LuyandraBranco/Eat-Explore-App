@@ -19,26 +19,26 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Home({ navigation }: any) {
   const [name, setName] = useState<string | null>(null);
+  const [userId, setUserId] = useState<number | null>(null);
   const [backPressedOnce, setBackPressedOnce] = useState(false);
 
   useEffect(() => {
     const retrieveUserData = async () => {
       try {
         const username = await AsyncStorage.getItem("username");
-        if (username !== null) {
-          // O username foi recuperado com sucesso
-          setName(username);
-        } else {
-          console.log("Nenhum username encontrado no AsyncStorage");
+        setName(username);
+
+        const storedUserId = await AsyncStorage.getItem("userId");
+        if (storedUserId) {
+          setUserId(parseInt(storedUserId));
         }
       } catch (error) {
         console.error("Erro ao recuperar dados do AsyncStorage:", error);
       }
     };
-  
+
     retrieveUserData();
   }, []);
-  
 
   const handleBackPress = useCallback(() => {
     if (backPressedOnce) {
@@ -75,16 +75,18 @@ export function Home({ navigation }: any) {
             O que está procurando hoje?
           </Text>
         </View>
-        {/* <TouchableOpacity
-          style={styles.containerImage}
-          onPress={() => navigation.navigate("Profile")}
-        >
-          <Image
-            source={require("../../assets/images/avatar.png")}
-            style={styles.image}
-            resizeMode="contain"
-          />
-        </TouchableOpacity> */}
+        {userId && (
+          <TouchableOpacity
+            style={styles.containerImage}
+            onPress={() => navigation.navigate("Profile")}
+          >
+            <Image
+              source={require("../../assets/images/avatar.png")}
+              style={styles.image}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        )}
       </View>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}

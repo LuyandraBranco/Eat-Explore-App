@@ -33,7 +33,7 @@ export function SignIn({ navigation }: any) {
       );
 
       if (loginResponse.data.accessToken) {
-        await AsyncStorage.setItem("userId", loginResponse.data.user.userId);
+        await AsyncStorage.setItem("userId",  JSON.stringify(loginResponse.data.user.userId));
         await AsyncStorage.setItem(
           "username",
           loginResponse.data.user.username

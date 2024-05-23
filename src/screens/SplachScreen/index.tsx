@@ -13,8 +13,15 @@ export function SplachScreen({ navigation }: any) {
           await AsyncStorage.setItem("firstLaunch", "false");
           navigation.navigate("Onboarding");
         } else {
-          // Não é a primeira vez que o aplicativo é aberto
-          navigation.navigate("AuthScreen");
+          // Verifica se o userId está presente no armazenamento local
+          const userId = await AsyncStorage.getItem("userId");
+          if (userId) {
+            // userId encontrado, vá diretamente para a tela Home
+            navigation.navigate("Tabs", { screen: "Home" });
+          } else {
+            // userId não encontrado, vá para a tela de autenticação
+            navigation.navigate("AuthScreen");
+          }
         }
       } catch (error) {
         console.error("Erro ao verificar o primeiro lançamento: ", error);
@@ -25,7 +32,7 @@ export function SplachScreen({ navigation }: any) {
 
     const timer = setTimeout(() => {
       checkFirstLaunch();
-    }, 5000); 
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [navigation]);
