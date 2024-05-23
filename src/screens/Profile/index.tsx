@@ -76,13 +76,6 @@ export function Profile({ navigation }: any) {
           <Text style={styles.title}>Content e Preferências</Text>
           <TouchableOpacity style={styles.itemContent}>
             <View style={styles.textContent}>
-              <Heart size={32} color="#000" />
-              <Text style={styles.text}> Favoritos</Text>
-            </View>
-            <CaretRight size={32} color="#000" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.itemContent}>
-            <View style={styles.textContent}>
               <Globe size={32} color="#000" />
               <Text style={styles.text}> Língua</Text>
             </View>

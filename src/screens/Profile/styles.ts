@@ -4,7 +4,6 @@ export default StyleSheet.create({
   containerProfile: {
     flex: 1,
     backgroundColor: "#F5f5f5",
-    justifyContent: "center",
     flexDirection: "column",
   },
   header: {
@@ -54,7 +53,7 @@ export default StyleSheet.create({
   },
   itemContent: {
     width: "90%",
-    height: "15%",
+    height: "18%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
