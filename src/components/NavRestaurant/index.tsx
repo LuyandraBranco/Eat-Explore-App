@@ -1,31 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { TouchableOpacity, View, Text } from "react-native";
-import axios from "axios";
 import styles from "./styles";
-import { Restaurant } from "../../@types/Restaurant";
 
-export function NavRestaurant({ navigation, restaurantId, activeItem }: any) {
-  const [restaurantData, setRestaurantData] = useState<Restaurant | null>(null);
-
-  useEffect(() => {
-    const fetchRestaurantData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api-eatexplore.onrender.com/restaurante/${restaurantId}`
-        );
-        setRestaurantData(response.data);
-      } catch (error) {
-        console.error("Error fetching restaurant data:", error);
-      }
-    };
-
-    fetchRestaurantData();
-  }, [restaurantId]);
-
-  if (!restaurantData) {
-    return <Text>Loading...</Text>;
-  }
-
+export function NavRestaurant({ navigation, restaurantData, activeItem }: any) {
   return (
     <View style={styles.nav}>
       <TouchableOpacity

@@ -31,11 +31,11 @@ export function SearchResults({
             <TouchableOpacity
               onPress={() => {
                 if (item.type === "restaurant") {
-                  navigation.navigate("RestaurantDetail", {
+                  navigation.navigate("RestaurantAbout", {
                     restaurantData: item,
                   });
                 } else if (item.type === "food") {
-                  navigation.navigate("FoodDetail", {
+                  navigation.navigate("Food", {
                     foodData: item,
                   });
                 }

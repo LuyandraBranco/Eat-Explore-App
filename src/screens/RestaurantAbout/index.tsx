@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,46 +10,19 @@ import styles from "./styles";
 import { CaretLeft, Heart } from "phosphor-react-native";
 import { NavRestaurant } from "../../components/NavRestaurant";
 import MapView, { Marker } from "react-native-maps";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Restaurant } from "../../@types/Restaurant";
 
 export function RestaurantAbout({ route, navigation }: any) {
-  const [activeItem, setActiveItem] = useState("about");
-  const [restaurantData, setRestaurantData] = useState<Restaurant | null>(null);
+  const activeItem = "about";
+  const { restaurantData } = route.params;
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
 
-  const { id } = route.params;
   useEffect(() => {
-    const fetchRestaurantData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api-eatexplore.onrender.com/restaurante/${id}`
-        );
-        const { data } = response;
-        setRestaurantData(data);
-
-        // Extraindo latitude e longitude da URL do Google Maps
-        const [, lat, lon] =
-          data.maps.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || [];
-        setLatitude(parseFloat(lat));
-        setLongitude(parseFloat(lon));
-      } catch (error) {
-        console.error("Error fetching restaurant data:", error);
-      }
-    };
-
-    fetchRestaurantData();
-  }, [id]);
-
-  if (!restaurantData) {
-    return (
-      <SafeAreaView style={styles.containerRestaurantAbout}>
-        <Text>Loading...</Text>
-      </SafeAreaView>
-    );
-  }
+    const [, lat, lon] =
+      restaurantData.maps.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || [];
+    setLatitude(parseFloat(lat));
+    setLongitude(parseFloat(lon));
+  }, [restaurantData.maps]);
 
   return (
     <SafeAreaView style={styles.containerRestaurantAbout}>

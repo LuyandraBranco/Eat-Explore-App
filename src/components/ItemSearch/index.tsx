@@ -12,7 +12,7 @@ interface ItemSearchProps {
 export function ItemSearch({ result, navigation }: ItemSearchProps) {
   const handlePress = () => {
     if (result.type === "restaurant") {
-      navigation.navigate("RestaurantAbout", { id: result.id });
+      navigation.navigate("RestaurantAbout", { restaurantData: result });
     } else if (result.type === "food") {
       navigation.navigate("Food", { id: result.id });
     }
