@@ -9,7 +9,7 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     // paddingHorizontal: 24,
     paddingTop: 40,
-    position: "relative"
+    position: "relative",
   },
   header: {
     width: "100%",
@@ -47,6 +47,6 @@ export default StyleSheet.create({
   txtCart: {
     fontSize: 15,
     fontFamily: "Inter_400Regular",
-    color: "#ddd"
+    color: "#ddd",
   },
 });

@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from "./styles";
-import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { CaretLeft } from "phosphor-react-native";
 
