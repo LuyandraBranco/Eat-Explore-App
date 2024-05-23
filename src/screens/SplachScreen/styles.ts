@@ -14,7 +14,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   imagem: {
     flex: 1,
     width: '60%',
