@@ -4,9 +4,18 @@ import Checkbox from "expo-checkbox";
 import axios from "axios";
 import styles from "./styles";
 
-export function CookingFilter() {
+export function CookingFilter({ onSelectionChange }:any) {
   const [culinaryTypes, setCulinaryTypes] = useState<any[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
+
+  const handleSelection = (culinaryId: number) => {
+    const newSelectedOptions = selectedOptions.includes(culinaryId)
+      ? selectedOptions.filter((id) => id !== culinaryId)
+      : [...selectedOptions, culinaryId];
+    setSelectedOptions(newSelectedOptions);
+    // Chama o callback passando as novas opções selecionadas
+    onSelectionChange(newSelectedOptions);
+  };
 
   useEffect(() => {
     const fetchCulinaryTypes = async () => {
@@ -22,13 +31,6 @@ export function CookingFilter() {
 
     fetchCulinaryTypes();
   }, []);
-
-  const handleSelection = (culinaryId: number) => {
-    const newSelectedOptions = selectedOptions.includes(culinaryId)
-      ? selectedOptions.filter((id) => id !== culinaryId)
-      : [...selectedOptions, culinaryId];
-    setSelectedOptions(newSelectedOptions);
-  };
 
   return (
     <ScrollView style={styles.cookingContainer}>

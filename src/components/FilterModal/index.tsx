@@ -15,6 +15,13 @@ import { LocationFilter } from "../LocationFilter";
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
 
+  const [selectedCulinaryOptions, setSelectedCulinaryOptions] = useState([]);
+
+  const handleCulinarySelectionChange = (selectedOptions: any) => {
+    setSelectedCulinaryOptions(selectedOptions);
+    console.log(selectedCulinaryOptions);
+  };
+
   const toggleFilter = (filterName: string) => {
     if (expandedFilter === filterName) {
       setExpandedFilter("");
@@ -55,7 +62,9 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               expanded={expandedFilter === "Tipo Culinária"}
               onPress={() => toggleFilter("Tipo Culinária")}
             >
-              <CookingFilter />
+              <CookingFilter
+                onSelectionChange={handleCulinarySelectionChange}
+              />
             </FilterElement>
             <FilterElement
               title="Preço"
