@@ -1,38 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 import Checkbox from "expo-checkbox";
+import axios from "axios";
 import styles from "./styles";
-import { optionsCookingFilter } from "../../data/optionsCookingFilter";
-
-interface SelectedOptions {
-  [key: string]: boolean;
-}
 
 export function CookingFilter() {
-  const [isSelected, setSelection] = useState<SelectedOptions>(
-    optionsCookingFilter.reduce((acc, option) => {
-      acc[option.key] = false;
-      return acc;
-    }, {} as SelectedOptions)
-  );
+  const [culinaryTypes, setCulinaryTypes] = useState<any[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
 
-  const handleSelection = (optionKey: string) => {
-    setSelection((prevState) => ({
-      ...prevState,
-      [optionKey]: !prevState[optionKey],
-    }));
+  useEffect(() => {
+    const fetchCulinaryTypes = async () => {
+      try {
+        const response = await axios.get(
+          "https://api-eatexplore.onrender.com/culinaria"
+        );
+        setCulinaryTypes(response.data);
+      } catch (error) {
+        console.error("Error fetching culinary types:", error);
+      }
+    };
+
+    fetchCulinaryTypes();
+  }, []);
+
+  const handleSelection = (culinaryId: number) => {
+    const newSelectedOptions = selectedOptions.includes(culinaryId)
+      ? selectedOptions.filter((id) => id !== culinaryId)
+      : [...selectedOptions, culinaryId];
+    setSelectedOptions(newSelectedOptions);
   };
 
   return (
     <ScrollView style={styles.cookingContainer}>
-      {optionsCookingFilter.map(({ key, label }) => (
-        <View key={key} style={styles.checkboxContainer}>
+      {culinaryTypes.map((culinary: any) => (
+        <View key={culinary.id} style={styles.checkboxContainer}>
           <Checkbox
-            value={isSelected[key]}
-            onValueChange={() => handleSelection(key)}
-            color={isSelected[key] ? "#E5383B" : undefined}
+            value={selectedOptions.includes(culinary.id)}
+            onValueChange={() => handleSelection(culinary.id)}
+            color={
+              selectedOptions.includes(culinary.id) ? "#E5383B" : undefined
+            }
           />
-          <Text style={styles.label}>{label}</Text>
+          <Text style={styles.label}>{culinary.culinaria}</Text>
         </View>
       ))}
     </ScrollView>

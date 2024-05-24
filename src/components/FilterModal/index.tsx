@@ -48,7 +48,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               expanded={expandedFilter === "Localização"}
               onPress={() => toggleFilter("Localização")}
             >
-             <LocationFilter/>
+              <LocationFilter />
             </FilterElement>
             <FilterElement
               title="Tipo Culinária"
@@ -65,7 +65,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               <PriceFilter />
             </FilterElement>
             <FilterElement title="Avaliação">
-              <StarReviewsFilter />
+              <StarReviewsFilter onPress={() => {}} />
             </FilterElement>
             <FilterElement title="Horário de Funcionamento">
               <HourFilter />
