@@ -16,6 +16,12 @@ export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
 
   const [selectedCulinaryOptions, setSelectedCulinaryOptions] = useState([]);
+  const [selectedPrice, setSelectedPrice] = useState(0);
+
+  const handlePriceChange = (price: number) => {
+    setSelectedPrice(price);
+    console.log(selectedPrice)
+  };
 
   const handleCulinarySelectionChange = (selectedOptions: any) => {
     setSelectedCulinaryOptions(selectedOptions);
@@ -71,7 +77,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               expanded={expandedFilter === "Preço"}
               onPress={() => toggleFilter("Preço")}
             >
-              <PriceFilter />
+              <PriceFilter onPriceChange={handlePriceChange} />
             </FilterElement>
             <FilterElement title="Avaliação">
               <StarReviewsFilter onPress={() => {}} />

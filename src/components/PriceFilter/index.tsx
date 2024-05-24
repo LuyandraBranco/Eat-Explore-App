@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Slider from '@react-native-community/slider';
-import styles from './styles';
+import React, { useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import Slider from "@react-native-community/slider";
+import styles from "./styles";
 
-export function PriceFilter() {
+export function PriceFilter({ onPriceChange }: any) {
   const [price, setPrice] = useState(0);
+
+  const handlePriceChange = (value: any) => {
+    setPrice(value);
+    onPriceChange(value);
+  };
 
   return (
     <View style={styles.container}>
@@ -16,7 +21,7 @@ export function PriceFilter() {
         maximumTrackTintColor="#000000"
         step={1}
         value={price}
-        onValueChange={(value) => setPrice(value)}
+        onValueChange={handlePriceChange}
       />
       <Text style={styles.price}>Preço Selecionado: {price}</Text>
     </View>
