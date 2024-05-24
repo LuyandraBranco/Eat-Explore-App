@@ -4,17 +4,13 @@ import Checkbox from "expo-checkbox";
 import axios from "axios";
 import styles from "./styles";
 
-export function CookingFilter({ onSelectionChange }:any) {
+export function CookingFilter({ onSelectionChange }: any) {
   const [culinaryTypes, setCulinaryTypes] = useState<any[]>([]);
-  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
   const handleSelection = (culinaryId: number) => {
-    const newSelectedOptions = selectedOptions.includes(culinaryId)
-      ? selectedOptions.filter((id) => id !== culinaryId)
-      : [...selectedOptions, culinaryId];
-    setSelectedOptions(newSelectedOptions);
-    // Chama o callback passando as novas opções selecionadas
-    onSelectionChange(newSelectedOptions);
+    setSelectedOption(selectedOption === culinaryId ? null : culinaryId);
+    onSelectionChange(selectedOption === culinaryId ? null : culinaryId);
   };
 
   useEffect(() => {
@@ -37,10 +33,10 @@ export function CookingFilter({ onSelectionChange }:any) {
       {culinaryTypes.map((culinary: any) => (
         <View key={culinary.id} style={styles.checkboxContainer}>
           <Checkbox
-            value={selectedOptions.includes(culinary.id)}
+            value={selectedOption === culinary.id}
             onValueChange={() => handleSelection(culinary.id)}
             color={
-              selectedOptions.includes(culinary.id) ? "#E5383B" : undefined
+              selectedOption === culinary.id ? "#E5383B" : undefined
             }
           />
           <Text style={styles.label}>{culinary.culinaria}</Text>
@@ -49,3 +45,4 @@ export function CookingFilter({ onSelectionChange }:any) {
     </ScrollView>
   );
 }
+

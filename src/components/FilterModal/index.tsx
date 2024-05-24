@@ -11,21 +11,29 @@ import { ReservationsFilter } from "../ReservationsFilter";
 import { PromotionFilter } from "../PromotionsFilter";
 import { EnvironmentFilter } from "../EnvironmentFilter";
 import { LocationFilter } from "../LocationFilter";
+import axios from "axios";
+import {
+  FoodResult,
+  RestaurantResult,
+  SearchResult,
+} from "../../screens/Search";
 
 export function FilterModal({ visible, onClose, onApply }: any) {
   const [expandedFilter, setExpandedFilter] = useState("");
 
-  const [selectedCulinaryOptions, setSelectedCulinaryOptions] = useState([]);
+  const [selectedCulinaryOption, setSelectedCulinaryOption] = useState<
+    number | null
+  >(null);
   const [selectedPrice, setSelectedPrice] = useState(0);
 
   const handlePriceChange = (price: number) => {
     setSelectedPrice(price);
-    console.log(selectedPrice)
+    console.log(selectedPrice);
   };
 
-  const handleCulinarySelectionChange = (selectedOptions: any) => {
-    setSelectedCulinaryOptions(selectedOptions);
-    console.log(selectedCulinaryOptions);
+  const handleCulinarySelectionChange = (selectedOption: number | null) => {
+    setSelectedCulinaryOption(selectedOption);
+    console.log(selectedCulinaryOption);
   };
 
   const toggleFilter = (filterName: string) => {
@@ -33,6 +41,47 @@ export function FilterModal({ visible, onClose, onApply }: any) {
       setExpandedFilter("");
     } else {
       setExpandedFilter(filterName);
+    }
+  };
+
+  const applyFilters = async (): Promise<void> => {
+    try {
+      let combinedResults: SearchResult[] = [];
+      // Verifica se há uma opção de culinária selecionada
+      if (selectedCulinaryOption !== null) {
+        // Faz a chamada de API para buscar restaurantes pelo tipo de culinária
+        const culinaryResult = await axios.get<RestaurantResult[]>(
+          `https://api-eatexplore.onrender.com/restaurante/culinaria/${selectedCulinaryOption}`
+        );
+        // Adiciona o campo 'type' aos resultados de culinária
+        const culinaryDataWithTypes: RestaurantResult[] =
+          culinaryResult.data.map((item) => ({
+            ...item,
+            type: "restaurant",
+          }));
+        combinedResults = [...combinedResults, ...culinaryDataWithTypes];
+      }
+      // Verifica se um preço foi selecionado
+      if (selectedPrice > 0) {
+        // Faz a chamada de API para buscar cardápios pelo preço
+        const priceResult = await axios.get<FoodResult[]>(
+          `https://api-eatexplore.onrender.com/cardapio/preco/${selectedPrice}`
+        );
+        // Adiciona o campo 'type' aos resultados de preço
+        const priceDataWithTypes: FoodResult[] = priceResult.data.map(
+          (item) => ({
+            ...item,
+            type: "food",
+          })
+        );
+        combinedResults = [...combinedResults, ...priceDataWithTypes];
+      }
+      // Atualiza o estado com os resultados combinados
+      onApply(combinedResults);
+      // Fecha a modal
+      onClose();
+    } catch (error) {
+      console.error("Erro ao aplicar filtros:", error);
     }
   };
 
@@ -95,7 +144,7 @@ export function FilterModal({ visible, onClose, onApply }: any) {
               <PromotionFilter />
             </FilterElement>
           </ScrollView>
-          <TouchableOpacity style={styles.applyButton}>
+          <TouchableOpacity style={styles.applyButton} onPress={applyFilters}>
             <Text style={styles.txtButton}>Aplicar Filtros</Text>
           </TouchableOpacity>
         </View>

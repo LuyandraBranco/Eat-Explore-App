@@ -15,11 +15,11 @@ export function PriceFilter({ onPriceChange }: any) {
     <View style={styles.container}>
       <Slider
         style={styles.slider}
-        minimumValue={0}
-        maximumValue={100}
+        minimumValue={500}
+        maximumValue={100000}
         minimumTrackTintColor="#E5383B"
         maximumTrackTintColor="#000000"
-        step={1}
+        step={500}
         value={price}
         onValueChange={handlePriceChange}
       />

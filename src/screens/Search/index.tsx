@@ -6,7 +6,7 @@ import styles from "./styles";
 import { FilterModal } from "../../components/FilterModal";
 import { SearchResults } from "../../components/SearchResults";
 
-type RestaurantResult = {
+export type RestaurantResult = {
   id: number;
   type: "restaurant";
   email: string;
@@ -24,7 +24,7 @@ type RestaurantResult = {
   phone2?: number | null;
 };
 
-type FoodResult = {
+export type FoodResult = {
   id: number;
   type: "food";
   name: string;
@@ -45,10 +45,6 @@ export function Search({ navigation }: any) {
 
   const toggleFilterModal = () => {
     setFilterVisible(!isFilterVisible);
-  };
-
-  const applyFilters = (filters: any) => {
-    console.log("Filtros aplicados:", filters);
   };
 
   const handleCancel = () => {
@@ -113,7 +109,7 @@ export function Search({ navigation }: any) {
       <FilterModal
         visible={isFilterVisible}
         onClose={toggleFilterModal}
-        onApply={applyFilters}
+        onApply={setSearchResults}
       />
       <SearchResults
         searchResults={searchResults}
